@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="API Automation Suite">
+    <test name="Auth API Tests">
+        <classes>
+            <class name="smbedition.authentication.tests.Auth"/>
+<!--            <class name="smbedition.authentication.tests.Dropdowns"></class>-->
+<!--            <class name="smbedition.authentication.tests.Debug"></class>-->
+<!--            organization-->
+            <class name="smbedition.organization.tests.OrgTest"></class>
+            <class name="smbedition.organization.tests.RoleTest"></class>
+            <class name="smbedition.organization.tests.OTPTest"></class>
+            <class name="smbedition.organization.tests.OrgUserTest"></class>
+
+        </classes>
+
+    </test>
+<!--    <listeners>-->
+<!--        <listener class-name="smbedition.authentication.util.TestListener"/>-->
+<!--    </listeners>-->
+</suite>
