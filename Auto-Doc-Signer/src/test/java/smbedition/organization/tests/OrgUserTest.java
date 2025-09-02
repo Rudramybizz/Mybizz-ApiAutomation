@@ -35,7 +35,28 @@ public class OrgUserTest  {
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
 
+    @Test(priority = 5,description = "get organiztion single user")
+    public void organization_getUserSingle(){
+        Response response = OrgUserService.getorgUser_Single();
+        Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
+    }
 
+    @Test(priority = 6, description = "Remove user from organization")
+    public void orguser_RemoveUser() {
+        Response response = OrgUserService.orgUserRemoveUser();
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+    }
 
+    @Test(priority = 7, description = "Mark user as inactive from organization")
+    public void orguser_markasInactive(){
+        Response response = OrgUserService.orgUserMarkInactive();
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+    }
+
+    @Test(priority = 8, description = "Mark user as active from organization")
+    public void orguser_MarkasActive(){
+        Response response = OrgUserService.orgUserMarkActive();
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+    }
 
 }

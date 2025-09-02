@@ -10,8 +10,16 @@
             <class name="smbedition.organization.tests.RoleTest"></class>
             <class name="smbedition.organization.tests.OTPTest"></class>
             <class name="smbedition.organization.tests.OrgUserTest"></class>
+            <class name="smbedition.organization.tests.BillingDetailsTest"></class>
+
+<!--            Doc Signer-->
+            <class name="smbedition.docsigner.tests.OrganizationTest"></class>
+            <class name="smbedition.docsigner.tests.LicenseTest"></class>
+
+
 
         </classes>
+
 
     </test>
 <!--    <listeners>-->

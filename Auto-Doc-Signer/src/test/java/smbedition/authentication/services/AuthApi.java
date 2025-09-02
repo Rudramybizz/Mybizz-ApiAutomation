@@ -70,7 +70,11 @@ public class AuthApi {
 
     public static Response Register() {
         if (orderId == null) throw new IllegalStateException("Order ID is not set. Run generateOtpRegister() first.");
-
+            System.out.println(email);
+            System.out.println(password);
+            System.out.println(mobile);
+            System.out.println(firstName);
+            System.out.println(password);
         String body = "{\n" +
                 "  \"email\": \"" + EncryptApi.encryptEmail(email) + "\",\n" +
                 "  \"password\": \"" + EncryptApi.encryptPassword(password) + "\",\n" +
@@ -88,6 +92,7 @@ public class AuthApi {
         logResponse("Register", response);
         return response;
     }
+
 
     // ===================== Login APIs =====================
     public static Response generateOtpLogin() {

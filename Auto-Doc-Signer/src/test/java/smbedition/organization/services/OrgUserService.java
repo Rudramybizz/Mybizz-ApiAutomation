@@ -7,6 +7,7 @@ import smbedition.common.TestData;
 import smbedition.common.TokenManager;
 import smbedition.organization.util.ApiClient;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,8 @@ public class OrgUserService {
     private static String otpFirstName = TestData.generateRandomFirstName();
     private static String otpLastName = TestData.generateRandomLastName();
     private static String otpMobile = TestData.generateRandomMobile();
-    private static  String orgId = TestData.getOrgId();
+    private static String orgId = TestData.getOrgId();
+    private static String userId;
 
 
     private static String getTokenOrLogin() {
@@ -164,9 +166,85 @@ private static void logResponse(String apiName, Response response) {
         System.out.println("Auth Token"+token);
         Response response = ApiClient.get("org.getorgUser.list",orgId,token);
         System.out.println("Response Status Code: " + response.getStatusCode());
+        userId = response.jsonPath().getString("data[0].id");
         response.prettyPrint();
         return response;
     }
+
+
+    public static Response getorgUser_Single(){
+
+        String orgId = TestData.getOrgId();
+        if (token == null || token.isEmpty()) {
+            token = getTokenOrLogin();
+        }
+        Response response = ApiClient.get("org.getorgUser.single", userId, token, orgId);
+        logResponse("GetRoleSingle", response);
+        return response;
+    }
+
+
+
+    public static Response orgUserRemoveUser(){
+        if (token == null || token.isEmpty()) {
+            token = getTokenOrLogin();
+        }
+        Map<String, Object> body = new HashMap<>();
+        body.put("instance_ids", Arrays.asList("2a64c023-1080-462c-b216-a189cb87f99b"));
+        body.put("otp", "445566");
+        body.put("order_id", TestData.getOtpOrderId());
+
+        System.out.println("Remove User Body: " + body);
+        Response response = ApiClient.patch(
+                "org.removeuser",
+                body,
+                token,
+                orgId
+        );
+
+        response.prettyPrint();
+        return response;
+    }
+
+
+    public static Response orgUserMarkInactive(){
+        if (token == null || token.isEmpty()) {
+            token = getTokenOrLogin();
+        }
+        Map<String, Object> body = new HashMap<>();
+        body.put("instance_ids", Arrays.asList("2a64c023-1080-462c-b216-a189cb87f99b"));
+
+        System.out.println("Remove User Body: " + body);
+        Response response = ApiClient.patch(
+                "org.markasinactive",
+                body,
+                token,
+                orgId
+        );
+
+        response.prettyPrint();
+        return response;
+
+    }
+
+    public static Response orgUserMarkActive(){
+        if (token == null || token.isEmpty()) {
+            token = getTokenOrLogin();
+        }
+        Map<String, Object> body = new HashMap<>();
+        body.put("instance_ids", Arrays.asList("2a64c023-1080-462c-b216-a189cb87f99b"));
+        System.out.println("Remove User Body: " + body);
+        Response response = ApiClient.patch(
+                "org.markasactive",
+                body,
+                token,
+                orgId
+        );
+
+        response.prettyPrint();
+        return response;
+    }
+
 
 
 

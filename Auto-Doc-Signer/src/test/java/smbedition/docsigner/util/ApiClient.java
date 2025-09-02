@@ -1,4 +1,4 @@
-package smbedition.organization.util;
+package smbedition.docsigner.util;
 
 import io.restassured.response.Response;
 import smbedition.common.ConfigLoader;
@@ -68,7 +68,7 @@ public class ApiClient {
                 .header("Authorization", "Bearer " + token);
 
         if (addOrgHeader && organizationId != null && !organizationId.isEmpty()) {
-            request.header(ORG_HEADER, organizationId);  // ✅ FIXED
+            request.header(ORG_HEADER, organizationId);  //  FIXED
         }
 
         return request.when()
@@ -84,7 +84,7 @@ public class ApiClient {
                 .header("Authorization", "Bearer " + token);
 
         if (orgId != null && !orgId.isEmpty()) {
-            request.header(ORG_HEADER, orgId);  // ✅ add organization header
+            request.header(ORG_HEADER, orgId);  //  add organization header
         }
 
         return request.when()
