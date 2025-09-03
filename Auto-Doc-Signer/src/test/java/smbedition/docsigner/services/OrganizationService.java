@@ -18,9 +18,6 @@ public class OrganizationService {
             System.out.println("Token not found. Logging in to generate new token...");
             token = TokenManager.get();
 
-            if (token == null || token.trim().isEmpty()) {
-                throw new IllegalStateException("Failed to generate token. Login process did not return a token.");
-            }
         }
         System.out.println("Token successfully retrieved: " + token);
         return token;

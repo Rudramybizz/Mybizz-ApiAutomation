@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import smbedition.common.ConfigLoader;
 import smbedition.common.RequestSpecFactory;
 
+import java.io.File;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -98,6 +99,8 @@ public class ApiClient {
 
 
 
+
+
     // ========== POST METHODS ==========
     public static Response post(String endpointKey, Object body) {
         return given()
@@ -148,6 +151,22 @@ public class ApiClient {
 
 
 
+
+    public static Response postMultipart(String endpointKey, File file, String password, String token, String orgId) {
+        return given()
+                .header("Authorization", "Bearer " + token)
+                .header(ORG_HEADER, orgId)
+                .multiPart("signature_file", file, "application/x-pkcs12") // explicit MIME type for .pfx
+                .multiPart("password", password)      // text field
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+    }
+
+
+
+
+
     // ========== PATCH METHODS ==========
     public static Response patch(String endpointKey, Object body, String token) {
         return given()
@@ -169,6 +188,32 @@ public class ApiClient {
                 .patch(getUrl(endpointKey))
                 .andReturn();
     }
+
+    public static Response patch(String endpointKey, String pathParam, Object body,
+                                 Map<String, String> queryParams, String token, String orgId) {
+        String url = getUrl(endpointKey) + "/" + pathParam;
+
+        var request = given()
+                .spec(RequestSpecFactory.get())
+                .header("Authorization", "Bearer " + token);
+
+        if (orgId != null && !orgId.isEmpty()) {
+            request.header(ORG_HEADER, orgId);
+        }
+
+        if (queryParams != null && !queryParams.isEmpty()) {
+            request.queryParams(queryParams);
+        }
+
+        if (body != null) {
+            request.body(body);
+        }
+
+        return request.when()
+                .patch(url)
+                .andReturn();
+    }
+
 
 
 }

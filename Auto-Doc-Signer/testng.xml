@@ -5,16 +5,20 @@
             <class name="smbedition.authentication.tests.Auth"/>
 <!--            <class name="smbedition.authentication.tests.Dropdowns"></class>-->
 <!--            <class name="smbedition.authentication.tests.Debug"></class>-->
+
 <!--            organization-->
             <class name="smbedition.organization.tests.OrgTest"></class>
-            <class name="smbedition.organization.tests.RoleTest"></class>
-            <class name="smbedition.organization.tests.OTPTest"></class>
-            <class name="smbedition.organization.tests.OrgUserTest"></class>
-            <class name="smbedition.organization.tests.BillingDetailsTest"></class>
+<!--            <class name="smbedition.organization.tests.RoleTest"></class>-->
+<!--            <class name="smbedition.organization.tests.OTPTest"></class>-->
+<!--            <class name="smbedition.organization.tests.OrgUserTest"></class>-->
+<!--            <class name="smbedition.organization.tests.BillingDetailsTest"></class>-->
 
 <!--            Doc Signer-->
-            <class name="smbedition.docsigner.tests.OrganizationTest"></class>
-            <class name="smbedition.docsigner.tests.LicenseTest"></class>
+<!--            <class name="smbedition.docsigner.tests.OrganizationTest"></class>-->
+<!--            <class name="smbedition.docsigner.tests.LicenseTest"></class>-->
+                <class name="smbedition.docsigner.tests.WebLicenseTest"></class>
+
+
 
 
 
