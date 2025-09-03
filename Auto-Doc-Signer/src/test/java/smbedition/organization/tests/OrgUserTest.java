@@ -3,8 +3,6 @@ package smbedition.organization.tests;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import smbedition.authentication.base.BaseTest;
-import smbedition.organization.services.OTPService;
 import smbedition.organization.services.OrgUserService;
 
 public class OrgUserTest  {

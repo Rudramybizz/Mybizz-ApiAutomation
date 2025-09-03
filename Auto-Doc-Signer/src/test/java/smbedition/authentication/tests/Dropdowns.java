@@ -4,7 +4,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import smbedition.authentication.base.BaseTest;
+import smbedition.common.BaseTest;
 import smbedition.authentication.services.DropdownsService;
 
 import java.util.List;

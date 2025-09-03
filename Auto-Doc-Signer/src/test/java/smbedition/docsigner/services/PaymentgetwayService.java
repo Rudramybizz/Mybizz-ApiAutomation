@@ -3,7 +3,7 @@ package smbedition.docsigner.services;
 import io.restassured.response.Response;
 import smbedition.common.TestData;
 import smbedition.common.TokenManager;
-import smbedition.docsigner.util.ApiClient;
+import smbedition.common.ApiClient;
 
 import java.util.Arrays;
 import java.util.HashMap;

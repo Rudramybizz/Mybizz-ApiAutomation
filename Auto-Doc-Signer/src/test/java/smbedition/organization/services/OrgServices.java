@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import smbedition.authentication.services.AuthApi;
 import smbedition.common.*;
-import smbedition.organization.util.ApiClient;
+
 
 import java.io.File;
 import java.util.ArrayList;

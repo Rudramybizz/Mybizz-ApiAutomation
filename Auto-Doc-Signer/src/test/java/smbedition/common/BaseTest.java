@@ -1,12 +1,8 @@
-package smbedition.authentication.base;
+package smbedition.common;
 
 import io.restassured.specification.RequestSpecification;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
-import smbedition.common.ConfigLoader;
-import smbedition.common.RequestSpecFactory;
 
 public class BaseTest {
 

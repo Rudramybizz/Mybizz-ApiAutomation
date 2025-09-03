@@ -3,7 +3,6 @@ package smbedition.organization.tests;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import smbedition.organization.base.BaseTest;
 import smbedition.organization.services.OrgServices;
 import java.io.File;
 

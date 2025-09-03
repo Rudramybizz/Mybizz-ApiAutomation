@@ -3,8 +3,7 @@ package smbedition.authentication.tests;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import smbedition.authentication.base.BaseTest;
-import smbedition.authentication.services.AuthApi;
+import smbedition.common.BaseTest;
 import smbedition.authentication.services.DebugService;
 
 public class Debug extends BaseTest {

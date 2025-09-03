@@ -2,7 +2,7 @@ package smbedition.docsigner.services;
 
 import io.restassured.response.Response;
 import smbedition.common.*;
-import smbedition.docsigner.util.ApiClient;
+
 
 import java.io.File;
 import java.nio.file.Files;
@@ -185,15 +185,6 @@ public static  Response getSignatureProperties() {
 
     return response;
 }
-
-
-
-
-
-
-
-
-
 
 
 

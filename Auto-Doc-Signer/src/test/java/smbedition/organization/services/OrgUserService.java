@@ -5,7 +5,7 @@ import smbedition.common.ApiUtil;
 import smbedition.common.EncryptApi;
 import smbedition.common.TestData;
 import smbedition.common.TokenManager;
-import smbedition.organization.util.ApiClient;
+import smbedition.common.ApiClient;
 
 import java.util.Arrays;
 import java.util.HashMap;

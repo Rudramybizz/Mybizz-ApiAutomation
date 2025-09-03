@@ -1,6 +1,6 @@
 package smbedition.authentication.tests;
 
-import smbedition.authentication.base.BaseTest;
+import smbedition.common.BaseTest;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 import smbedition.common.TestData;
 import smbedition.common.TokenManager;
 import smbedition.authentication.services.AuthApi;
-
-import java.util.*;
-import java.util.List;
 
 public class Auth extends BaseTest {
 

@@ -3,7 +3,7 @@ package smbedition.authentication.services;
 import io.restassured.response.Response;
 import smbedition.common.ApiUtil;
 import smbedition.common.TokenManager;
-import smbedition.authentication.util.ApiClient;
+import smbedition.common.ApiClient;
 
 
 public class DebugService {
