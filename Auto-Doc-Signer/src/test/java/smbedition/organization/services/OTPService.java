@@ -137,6 +137,9 @@ private static void logResponse(String apiName, Response response) {
                 token,
                 orgId
         );
+        response.prettyPrint();
+        String otpOrderIdUpdateuser = response.jsonPath().getString("orderId");
+        TestData.setOtpOrderIdUpdateUser(otpOrderIdUpdateuser);
         System.out.println("Get OTP Response: " + response.asPrettyString());
         return response;
     }
@@ -159,9 +162,11 @@ private static void logResponse(String apiName, Response response) {
                 orgId
         );
         System.out.println("Get OTP Response: " + response.asPrettyString());
+
+        String otpOrderIdRemoveuser = response.jsonPath().getString("orderId");
+        TestData.setOtpOrderIdRemoveUser(otpOrderIdRemoveuser);
         return response;
     }
-
 
 
 

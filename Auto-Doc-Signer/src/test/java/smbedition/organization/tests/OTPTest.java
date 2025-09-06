@@ -20,11 +20,13 @@ public class OTPTest {
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
 
+
     @Test(priority = 3, description = "Generate OTP remove user API")
     public void testGenerateOtp_RemoveUser(){
         Response response = OTPService.generateOtpRemoveUser();
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
+
 
 
 

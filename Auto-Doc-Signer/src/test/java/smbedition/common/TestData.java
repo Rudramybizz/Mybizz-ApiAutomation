@@ -13,6 +13,8 @@ public class TestData {
     private static String orgId;
     private static String roleId;
     private static String otpOrderId;
+    private static String otpOrderIdUpdateUser;
+    private static String otpOrderIdRemoveUser;
 
     public static String generateRandomEmail() {
         String chars = "abcdefghijklmnopqrstuvwxyz";
@@ -210,7 +212,21 @@ public class TestData {
     public static  void  setOtpOrderId(String id){
         otpOrderId = id;
     }
+//    ==============Otp order id for update user ============
+    public static  String getOtpOrderIdUpdateUser() {
+        return otpOrderIdUpdateUser;
+    }
+    public static  void  setOtpOrderIdUpdateUser(String id){
+        otpOrderIdUpdateUser = id;
+    }
 
+//    ==============Otp order id for remove user ============
+    public static  String getOtpOrderIdRemoveUser() {
+        return otpOrderIdRemoveUser;
+    }
+    public static  void  setOtpOrderIdRemoveUser(String id){
+        otpOrderIdRemoveUser = id;
+    }
 
     public static String generateRandomEmpId(){
         int empId = 1000 + random.nextInt(9000);

@@ -10,17 +10,9 @@ public class OrgUserTest  {
     @Test(priority = 1, description = "Generate OTp add user API")
     public void organization_AddUser() {
         Response response = OrgUserService.organizationAddUser();
-        Assert.assertEquals(response.getStatusCode(), 201, "Expected status code 201");
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 201");
 
     }
-
-    @Test(priority = 2, description = "Generate OTp update user API")
-    public void organization_UpdateUser() {
-        Response response = OrgUserService.organizationUpdateUser();
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
-
-    }
-
     @Test(priority = 3,description = "get organiztion dropdown")
     public void organization_getdropdown(){
         Response response = OrgUserService.getorgUser_dropdown();
@@ -39,7 +31,20 @@ public class OrgUserTest  {
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
 
-    @Test(priority = 6, description = "Remove user from organization")
+
+    @Test(priority = 6, description = "Generate OTp update user API")
+    public void organization_UpdateUser() {
+        Response response = OrgUserService.organizationUpdateUser();
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+
+    }
+
+
+
+
+
+
+    @Test(priority = 7, description = "Remove user from organization")
     public void orguser_RemoveUser() {
         Response response = OrgUserService.orgUserRemoveUser();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");

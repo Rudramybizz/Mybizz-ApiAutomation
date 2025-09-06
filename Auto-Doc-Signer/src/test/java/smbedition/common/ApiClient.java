@@ -102,12 +102,47 @@ public class ApiClient {
         if (orgId != null && !orgId.isEmpty()) {
             request.header(ORG_HEADER, orgId);  //  add organization header
         }
-
         return request.when()
                 .get(url)
                 .andReturn();
     }
 
+
+    public static Response getWithQuery(String endpointKey, Map<String, String> queryParams, String token, String orgId) {
+        return given()
+                .spec(RequestSpecFactory.get())
+                .header("Authorization", "Bearer " + token)
+                .header(ORG_HEADER, orgId)
+                .queryParams(queryParams)   // add query params here
+                .when()
+                .get(getUrl(endpointKey))
+                .andReturn();
+    }
+    public static Response getWithPath(String endpointKey, String pathParam, String token, String orgId) {
+        String url = getUrl(endpointKey) + "/" + pathParam; // build full URL
+
+        var request = given()
+                .spec(RequestSpecFactory.get())
+                .header("Authorization", "Bearer " + token);
+
+        if (orgId != null && !orgId.isEmpty()) {
+            request.header(ORG_HEADER, orgId); // add org header if present
+        }
+        return request.when()
+                .get(url)
+                .andReturn();
+    }
+
+    public static Response get(String endpointKey, Map<String, Object> queryParams, String orgId, String token) {
+        return given()
+                .spec(RequestSpecFactory.get())
+                .header("Authorization", "Bearer " + token)
+                .header("organization", orgId)
+                .queryParams(queryParams)
+                .when()
+                .get(getUrl(endpointKey))
+                .andReturn();
+    }
 
 
 
@@ -155,7 +190,6 @@ public class ApiClient {
 
     }
 
-
     public static Response post(String endpointKey, String pathParam, Object body, String token, String orgId) {
         String url = getUrl(endpointKey) + "/" + pathParam;
 
@@ -183,6 +217,20 @@ public class ApiClient {
                 .andReturn();
     }
 
+    public static Response postMultipart(String endpointKey, File file, String token, String orgId) {
+        return given()
+                .header("Authorization", "Bearer " + token)
+                .header(ORG_HEADER, orgId)
+                .multiPart("signature_file", file, "application/x-pkcs12") // explicit MIME type for .pfx
+//
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+    }
+
+
+
+
 
     // ========== PATCH METHODS ==========
 
@@ -204,6 +252,8 @@ public class ApiClient {
                 .put(getUrl(endpointKey))
                 .andReturn();
     }
+
+
 
     public static Response patch(String endpointKey, Object body, String token,String orgId) {
         return given()
@@ -240,6 +290,37 @@ public class ApiClient {
                 .patch(url)
                 .andReturn();
     }
+
+
+    // ========== DELETE METHODS ==========
+    public static Response delete(String endpointKey, String pathParam, String token, String orgId) {
+        String url = getUrl(endpointKey); // builds baseUrl + endpoint
+
+        if (pathParam != null && !pathParam.isEmpty()) {
+            url = url.replace("{id}", pathParam);  // replace placeholder
+        }
+
+        var request = given()
+                .spec(RequestSpecFactory.get())
+                .header("Authorization", "Bearer " + token);
+
+        if (orgId != null && !orgId.isEmpty()) {
+            request.header(ORG_HEADER, orgId);
+        }
+
+        return request.when()
+                .delete(url)
+                .andReturn();
+    }
+
+
+
+
+
+
+
+
+
 
 
 

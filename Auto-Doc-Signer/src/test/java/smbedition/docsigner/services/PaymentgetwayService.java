@@ -68,7 +68,7 @@ public class PaymentgetwayService {
 
             System.out.println("Remove User Body: " + body);
             Response response = ApiClient.patch(
-                    "doc.addbillingdetails",
+                    "org.addbillingdetail",
                     body,
                     token,
                     orgId
@@ -133,6 +133,24 @@ public class PaymentgetwayService {
         return response;
 
     }
+
+
+//        "billing_details_id": "c67238a3-e929-4435-bc69-a6bf89ae3577",
+//            "request_plan": "new", //new/renew/upgrade/avail_add_on
+//            "region": "india",
+//            "desktop_type": "web", // windows/linux/mac/web/api
+//            "plan_type": "basic", // basic/premium/unlimited
+//            "license_period": 12, //no.of months
+//            "add_ons_quantity": 1
+
+
+//    public static Response licensePaymentNew(){
+//
+//
+//
+//
+//
+//    }
 
 
 

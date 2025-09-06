@@ -12,8 +12,6 @@ import static smbedition.common.TestData.getOrgId;
 public class EncryptApi {
   private static String orgId = TestData.getOrgId();
 
-
-
         private static String encryptField (String fieldName, String fieldValue){
             Map<String, String> payload = new HashMap<>();
             payload.put(fieldName, fieldValue);
@@ -69,7 +67,6 @@ public class EncryptApi {
         public static String encryptLastName (String name){
             return encryptField("data", name);
         }
-
 
 //    Encryption with bearer
         public static String encryptFieldWithToken (String fieldName, String fieldValue){

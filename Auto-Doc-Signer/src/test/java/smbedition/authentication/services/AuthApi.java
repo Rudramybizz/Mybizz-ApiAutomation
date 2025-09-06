@@ -129,6 +129,7 @@ public class AuthApi {
         Response response = ApiClient.post("login", body);
         token = response.jsonPath().getString("data.token");
          TokenManager.setToken(token);
+         System.out.println("Login Order Id:"+loginOrderId);
         logResponse("Login with OTP", response);
         return response;
     }
@@ -193,8 +194,6 @@ public class AuthApi {
     }
 
 //    ====================== get Session =====================
-
-
     public static Response getSessions() {
         if (token == null || token.trim().isEmpty()) {
             throw new IllegalStateException("User must login first to get token.");
@@ -212,7 +211,7 @@ public class AuthApi {
 
 
     // ===================== Update Profile =====================
-    // ===================== Update Profile =====================
+
     public static Response updateProfile(
             String firstName,
             String lastName,
@@ -292,10 +291,6 @@ public class AuthApi {
         logResponse("Update Profile", response);
         return response;
     }
-
-
-
-
 
 
 // ===================== Update Profile localisation_settings =====================
@@ -400,37 +395,20 @@ public class AuthApi {
 
 //   ====================== Resend OTP  FAIL/PASS=========================
 
-    public static Response resendOtp() {
+    public static Response resendOtp()
+    {
         if (orderId == null || orderId.trim().isEmpty()) {
             throw new IllegalStateException("Login Order ID is not set. Run generateOtpLogin() first.");
         }
-        ApiUtil.waitForNextRequest();
+        System.out.println(orderId);
+//        ApiUtil.waitForNextRequest();
         String endpoint = "resendOTP" ;
+         System.out.println(loginOrderId);
 
-
-        logRequest("Resend OTP", "Endpoint: " + endpoint);
-//                   resendOTP
-        Response response = ApiClient.post(endpoint, null);
-        logResponse("Resend OTP", response);
-
-        try {
-            String success = response.jsonPath().getString("success");
-            String message = response.jsonPath().getString("message");
-            if ("1".equals(success)) {
-                System.out.println("OTP triggered successfully for Order ID: " + orderId);
-            } else {
-                System.out.println("OTP failed for Order ID: " + orderId + " | Message: " + message);
-            }
-        } catch (Exception e) {
-            System.out.println("Could not parse OTP trigger status from response.");
-        }
+        Response response = ApiClient.post("resendOTP",orderId);
 
         return response;
     }
-
-
-
-
 
 
 //======================change-password=======================

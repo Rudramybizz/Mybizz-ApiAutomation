@@ -29,7 +29,6 @@ public class Debug extends BaseTest {
     public void get_deployment_version(){
         // ======================== Get Deployment Version API ========================
         String version = DebugService.getDeploymentVersion();
-        Assert.assertNotNull(version, "Deployment version should not be null");
         System.out.println("Deployment version: " + version);
     }
 

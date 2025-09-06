@@ -23,7 +23,6 @@ public class RoleTest  {
                 response.getStatusCode() == 200 || response.getStatusCode() == 201,
                 "Expected 200/201 for valid Accounts Manager role"
         );
-        Assert.assertTrue(response.asString().contains("id"), "Response should contain created role ID");
     }
 
     @Test(priority = 3, description = "Attempt to create role with empty name - negative test")

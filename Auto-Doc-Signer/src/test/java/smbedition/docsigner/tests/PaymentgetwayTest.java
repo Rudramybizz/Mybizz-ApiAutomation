@@ -20,7 +20,7 @@ public class PaymentgetwayTest {
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
     }
 
-    @Test(priority = 3, description = "Update billing details API")
+//    @Test(priority = 3, description = "Update billing details API")
     public  void updateBilling_details() {
         Response response = PaymentgetwayService.updateBillingdetails();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");

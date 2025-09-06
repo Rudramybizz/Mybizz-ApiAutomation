@@ -113,8 +113,6 @@ public static List<String> getCityIds() {
 }
 
 
-
-
     public static Response get_Org_List(){
         System.out.println("====Get Organization List API=====");
         ApiUtil.waitForNextRequest();
@@ -151,86 +149,7 @@ public static List<String> getCityIds() {
     }
 
 
-//=============== Create Organization API =======================
-
-//    public static Response createOrganization(File logoFile) {
-//
-//        String token = TokenManager.get();
-//        System.out.println("token used in createOrg: " + token);
-//        System.out.println("===== Create Organization API =====");
-//
-//        String randomemail = TestData.generateRandomEmail();
-//        String randomphoneno = TestData.generateRandomMobile();
-//        System.out.println("Random Email:" + randomemail);
-//        System.out.println("Random Phone Number :" + randomphoneno);
-//        ApiUtil.waitForNextRequest();
-//
-//        // Auto-generated TestData values
-//        String name = TestData.generateOrganizationName();
-//        String organizationId = TestData.generateOrganizationId();
-//        String address = TestData.generateAddress();
-//        String mandalOrTaluk = TestData.generateMandalOrTaluk();
-//        String countryId = "IN";
-//        String stateId = "4012";
-//        String cityId = "133607";
-//        String pincode = TestData.generatePincode();
-//        String email = EncryptApi.encryptEmailToken(randomemail);
-//        String phone = EncryptApi.encryptMobileToken(randomphoneno);
-//        String dialingCodeId = "IN";
-//        String organizationType = TestData.generateOrganizationType();
-//        String registrationNumber = TestData.generateRegistrationNumber();
-//        String documentNumber = TestData.generateDocumentNumber();
-//        String nameAsPerDocument = TestData.generateOrganizationName();
-//
-//        // Build JSON Body (String)
-//        StringBuilder bodyBuilder = new StringBuilder();
-//        bodyBuilder.append("{\n")
-//                .append("  \"name\": \"").append(name).append("\",\n")
-//                .append("  \"organization_id\": \"").append(organizationId).append("\",\n")
-//                .append("  \"address\": \"").append(address).append("\",\n")
-//                .append("  \"mandal_or_taluk\": \"").append(mandalOrTaluk).append("\",\n")
-//                .append("  \"country_id\": \"").append(countryId).append("\",\n")
-//                .append("  \"state_id\": \"").append(stateId).append("\",\n")
-//                .append("  \"city_id\": \"").append(cityId).append("\",\n")
-//                .append("  \"pincode\": \"").append(pincode).append("\",\n")
-//                .append("  \"email\": \"").append(email).append("\",\n")
-//                .append("  \"phone\": \"").append(phone).append("\",\n")
-//                .append("  \"dialing_code_id\": \"").append(dialingCodeId).append("\",\n")
-//                .append("  \"organization_type\": \"").append(organizationType).append("\",\n")
-//                .append("  \"registration_number\": \"").append(registrationNumber).append("\",\n")
-//                .append("  \"document_number\": \"").append(documentNumber).append("\",\n")
-//                .append("  \"name_as_per_document\": \"").append(nameAsPerDocument).append("\",\n")
-//                .append("  \"application_group_list\": [\"auto_doc_signer\"]\n")
-//                .append("}");
-//
-//        String body = bodyBuilder.toString();
-//
-//        Response response;
-//
-//        if (logoFile != null) {
-//            // Multipart request (Logo + JSON)
-//            response = RestAssured.given()
-//                    .baseUri(ConfigLoader.get("orgbase.url"))
-//                    .basePath(ConfigLoader.getEndpoint("org.createorganization"))
-//                    .header("Authorization", "Bearer " + token)
-//                    .multiPart("logo", logoFile)                           // attach logo
-//                    .multiPart("data", body, "application/json")           // attach JSON
-//                    .when()
-//                    .post();
-//        } else {
-//            // JSON only
-//            response = ApiClient.post("org.createorganization", body, token);
-//        }
-//
-//        System.out.println("=== Request Body ===");
-//        System.out.println(body);
-//        System.out.println("====================");
-//        System.out.println("Response Status Code: " + response.getStatusCode());
-//        response.prettyPrint();
-//
-//        return response;
-//    }
-
+    //=============== Create Organization API ==================
 public static Response createOrganization() {
 
     String token = TokenManager.get();
@@ -238,8 +157,8 @@ public static Response createOrganization() {
     System.out.println("===== Create Organization API =====");
     String randomemail = TestData.generateRandomEmail();
     String randomphoneno = TestData.generateRandomMobile();
-   System.out.println("Random Email:"+randomemail);
-   System.out.println("Random Phone Number :"+randomphoneno);
+    System.out.println("Random Email:"+randomemail);
+    System.out.println("Random Phone Number :"+randomphoneno);
     ApiUtil.waitForNextRequest();
 
     // Auto-generated TestData values
@@ -295,14 +214,9 @@ public static Response createOrganization() {
             .append("  \"name_as_per_document\": \"").append(nameAsPerDocument).append("\",\n")
             .append("  \"application_group_list\": \"[\\\"auto_doc_signer\\\"]\"\n")
             .append("}");
-
-
-
     String body = bodyBuilder.toString();
 
-    // Call API
     Response response = ApiClient.post("org.createorganization", body, token);
-
 
     System.out.println("=== Request Body ===");
     System.out.println(body);
@@ -312,7 +226,6 @@ public static Response createOrganization() {
 
     return response;
 }
-
 
 
 
@@ -335,9 +248,6 @@ public static Response createOrganization() {
         response.prettyPrint();
         return response;
     }
-
-
-
 
 
     public static Response orgfiscalyearSucess_create(String defaultDateFormat, String numberFormat) {
