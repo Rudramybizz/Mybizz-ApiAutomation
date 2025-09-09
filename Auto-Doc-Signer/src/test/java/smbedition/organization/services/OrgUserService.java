@@ -58,54 +58,94 @@ private static void logResponse(String apiName, Response response) {
 
 
 // ==================== Add User ====================
-    public static Response organizationAddUser(){
-        if (token == null || token.isEmpty()) {
-            token = getTokenOrLogin();
-        }
-        String empId = TestData.generateRandomEmpId();
-        String designation = TestData.generateDesignation();
-        String department = TestData.generateDepartment();
-        String accessStartDate = TestData.generateAccessStartDate();
-        String orderId = TestData.getOtpOrderId();
+//    public static Response organizationAddUser(){
+//        if (token == null || token.isEmpty()) {
+//            token = getTokenOrLogin();
+//        }
+//        String empId = TestData.generateRandomEmpId();
+//        String designation = TestData.generateDesignation();
+//        String department = TestData.generateDepartment();
+//        String accessStartDate = TestData.generateAccessStartDate();
+//        String orderId = TestData.getOtpOrderId();
+//
+//        Map<String, Object> body = new HashMap<>();
+//        body.put("purpose", "add_organization_user");
+//        body.put("email", EncryptApi.encryptEmailTokenOrgId(otpEmail));
+//        body.put("first_name", EncryptApi.encryptFirstNameTokenOrgId(otpFirstName));
+//        body.put("last_name", EncryptApi.encryptLastNameTokenOrgId(otpLastName));
+//        body.put("phone", EncryptApi.encryptMobileTokenOrgId(otpMobile));
+//        body.put("country_id", "IN");
+//        body.put("dialing_code_id", "IN");
+//        body.put("role", TestData.getRoleId());
+//        body.put("employee_id", empId);
+//        body.put("designation", designation);
+//        body.put("reporting_manager", null);
+//        body.put("department", department);
+//        body.put("access_start_date", accessStartDate);
+//        body.put("access_end_date", null);
+//        body.put("otp", "445566");
+//        body.put("order_id", orderId);
+//        System.out.println("Order Id"+orderId);
+//
+//        System.out.println("======= Add User Request Body =======");
+//        body.forEach((k, v) -> System.out.println(k + " : " + v));
+////        System.out.println("Organization Id: " + orgId);
+//        System.out.println("=====================================");
+//
+////        System.out.println("organization Id:"+orgId);
+//        Response response = ApiClient.post(
+//                "org.adduser",
+//                body,
+//                token,
+//                orgId
+//        );
+//
+//          response.prettyPrint();
+//        return response;
+//    }
 
-        Map<String, Object> body = new HashMap<>();
-        body.put("purpose", "add_organization_user");
-        body.put("email", EncryptApi.encryptEmailTokenOrgId(otpEmail));
-        body.put("first_name", EncryptApi.encryptFirstNameTokenOrgId(otpFirstName));
-        body.put("last_name", EncryptApi.encryptLastNameTokenOrgId(otpLastName));
-        body.put("phone", EncryptApi.encryptMobileTokenOrgId(otpMobile));
-        body.put("country_id", "IN");
-        body.put("dialing_code_id", "IN");
-        body.put("role", TestData.getRoleId());
-        body.put("employee_id", empId);
-        body.put("designation", designation);
-        body.put("reporting_manager", null);
-        body.put("department", department);
-        body.put("access_start_date", accessStartDate);
-        body.put("access_end_date", null);
-        body.put("otp", "445566");
-        body.put("order_id", orderId);
-        System.out.println("Order Id"+orderId);
-
-        System.out.println("======= Add User Request Body =======");
-        body.forEach((k, v) -> System.out.println(k + " : " + v));
-//        System.out.println("Organization Id: " + orgId);
-        System.out.println("=====================================");
-
-//        System.out.println("organization Id:"+orgId);
-        Response response = ApiClient.post(
-                "org.adduser",
-                body,
-                token,
-                orgId
-        );
-
-          response.prettyPrint();
-        return response;
+public static Response organizationAddUser(){
+    if (token == null || token.isEmpty()) {
+        token = getTokenOrLogin();
     }
 
+    String empId = TestData.generateRandomEmpId();
+    String designation = TestData.generateDesignation();
+    String department = TestData.generateDepartment();
+    String accessStartDate = TestData.generateAccessStartDate();
+    String orderId = TestData.getOtpOrderId();
+    System.out.println("Order Id for add user:"+orderId);
 
+    Map<String, Object> body = new HashMap<>();
+    body.put("purpose", "add_organization_user");
+    body.put("email", EncryptApi.encryptEmailTokenOrgId(otpEmail));
+    body.put("first_name", EncryptApi.encryptFirstNameTokenOrgId(otpFirstName));
+    body.put("last_name", EncryptApi.encryptLastNameTokenOrgId(otpLastName));
+    body.put("phone", EncryptApi.encryptMobileTokenOrgId(otpMobile));
+    body.put("country_id", "IN");
+    body.put("dialing_code_id", "IN");
+    body.put("role", TestData.getRoleId());
+    body.put("employee_id", empId);
+    body.put("designation", designation);
+    body.put("reporting_manager", null);
+    body.put("department", department);
+    body.put("access_start_date", accessStartDate);
+    body.put("access_end_date", null);
+    body.put("otp","445566");          // dynamic OTP
+    body.put("order_id", orderId); // dynamic Order ID
+     System.out.println(body);
+//    System.out.println("Order Id: " + orderId + ", OTP: " + otp);
 
+    Response response = ApiClient.post(
+            "org.adduser",
+            body,
+            token,
+            orgId
+    );
+
+    response.prettyPrint();
+    return response;
+}
 
 
     public  static Response getorgUser_dropdown(){
@@ -127,6 +167,8 @@ private static void logResponse(String apiName, Response response) {
         Response response = ApiClient.get("org.getorgUser.list",orgId,token);
         System.out.println("Response Status Code: " + response.getStatusCode());
         userId = response.jsonPath().getString("data[0].id");
+        TestData.setSignatoryId(userId);
+        TestData.setUseridForSignatory(response.jsonPath().getString("data[0].user_details.id"));
         response.prettyPrint();
         return response;
     }
@@ -149,14 +191,11 @@ private static void logResponse(String apiName, Response response) {
         if (token == null || token.isEmpty()) {
             token = getTokenOrLogin();
         }
-//        OTPService.generateOtpUpdateUser();
         String empId = TestData.generateRandomEmpId();
         String designation = TestData.generateDesignation();
         String department = TestData.generateDepartment();
         String accessStartDate = TestData.generateAccessStartDate();
-//        String orderId = TestData.getOtpOrderIdUpdateUser();
-        String orderId = TestData.getOtpOrderId();
-        System.out.println("Order Id for update user:"+orderId);
+        String orderId = TestData.getOtpOrderIdUpdateUser();
         String roleId = TestData.getRoleId();
          System.out.println("Role Id:"+roleId);
 
@@ -168,14 +207,14 @@ private static void logResponse(String apiName, Response response) {
         body.put("phone", EncryptApi.encryptMobileTokenOrgId(otpMobile));
         body.put("country_id", "IN");
         body.put("dialing_code_id", "IN");
-        body.put("role",roleId);
+        body.put("role", TestData.getRoleId());
         body.put("employee_id", empId);
         body.put("designation", designation);
         body.put("reporting_manager", null);
         body.put("department", department);
         body.put("access_start_date", accessStartDate);
         body.put("access_end_date", null);
-        body.put("otp", "445566");
+        body.put("otp","445566");
         body.put("order_id", orderId);
 
         System.out.println("======= Update User Request Body =======");
@@ -197,13 +236,12 @@ private static void logResponse(String apiName, Response response) {
     }
 
 
-
     public static Response orgUserRemoveUser(){
         if (token == null || token.isEmpty()) {
             token = getTokenOrLogin();
         }
         Map<String, Object> body = new HashMap<>();
-        body.put("instance_ids", Arrays.asList("2a64c023-1080-462c-b216-a189cb87f99b"));
+        body.put("instance_ids", Arrays.asList(userId));
         body.put("otp", "445566");
         body.put("order_id", TestData.getOtpOrderIdRemoveUser());
 
@@ -225,28 +263,27 @@ private static void logResponse(String apiName, Response response) {
             token = getTokenOrLogin();
         }
         Map<String, Object> body = new HashMap<>();
-        body.put("instance_ids", Arrays.asList("2a64c023-1080-462c-b216-a189cb87f99b"));
-
-        System.out.println("Remove User Body: " + body);
+        body.put("instance_ids", Arrays.asList(userId));
+        System.out.println("Body: " + body);
         Response response = ApiClient.patch(
                 "org.markasinactive",
                 body,
                 token,
                 orgId
         );
-
         response.prettyPrint();
         return response;
-
     }
+
+
 
     public static Response orgUserMarkActive(){
         if (token == null || token.isEmpty()) {
             token = getTokenOrLogin();
         }
         Map<String, Object> body = new HashMap<>();
-        body.put("instance_ids", Arrays.asList("2a64c023-1080-462c-b216-a189cb87f99b"));
-        System.out.println("Remove User Body: " + body);
+        body.put("instance_ids", Arrays.asList(userId));
+        System.out.println("Body: " + body);
         Response response = ApiClient.patch(
                 "org.markasactive",
                 body,
@@ -257,7 +294,5 @@ private static void logResponse(String apiName, Response response) {
         response.prettyPrint();
         return response;
     }
-
-
 
 }

@@ -9,6 +9,7 @@ import smbedition.common.EncryptApi;
 import smbedition.common.TestData;
 
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -394,22 +395,21 @@ public class AuthApi {
 
 
 //   ====================== Resend OTP  FAIL/PASS=========================
-
-    public static Response resendOtp()
-    {
-        if (orderId == null || orderId.trim().isEmpty()) {
-            throw new IllegalStateException("Login Order ID is not set. Run generateOtpLogin() first.");
-        }
-        System.out.println(orderId);
-//        ApiUtil.waitForNextRequest();
-        String endpoint = "resendOTP" ;
-         System.out.println(loginOrderId);
-
-        Response response = ApiClient.post("resendOTP",orderId);
-
-        return response;
+public static Response resendOtp() {
+    if (loginOrderId == null || loginOrderId.trim().isEmpty()) {
+        throw new IllegalStateException("Login Order ID is not set. Run generateOtpLogin() first.");
     }
 
+    System.out.println("Login Order Id: " + loginOrderId);
+
+    // Hit the endpoint with path param only
+    Response response = ApiClient.postparam("resendOTP", loginOrderId);
+
+    System.out.println("Resend OTP Status Code: " + response.getStatusCode());
+    response.prettyPrint();
+
+    return response;
+}
 
 //======================change-password=======================
 

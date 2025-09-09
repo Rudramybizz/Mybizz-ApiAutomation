@@ -157,6 +157,17 @@ public class ApiClient {
                 .post(getUrl(endpointKey))
                 .andReturn();
     }
+    public static Response postparam(String endpointKey, String pathParam) {
+        String url = getUrl(endpointKey) + "/" + pathParam;  // append path param
+        return given()
+                .spec(RequestSpecFactory.get())
+                .when()
+                .post(url)
+                .andReturn();
+    }
+
+
+
 
     public static Response post(String endpointKey, Object body, String token) {
         return given()
@@ -205,7 +216,6 @@ public class ApiClient {
 
 
 
-
     public static Response postMultipart(String endpointKey, File file, String password, String token, String orgId) {
         return given()
                 .header("Authorization", "Bearer " + token)
@@ -217,21 +227,37 @@ public class ApiClient {
                 .andReturn();
     }
 
+//    public static Response postMultipart(String endpointKey, File file, String token, String orgId) {
+//        return given()
+//                .header("Authorization", "Bearer " + token)
+//                .header(ORG_HEADER, orgId)
+//                .multiPart("signature_file", file, "application/pdf") // explicit MIME type for .pfx
+////
+//                .when()
+//                .post(getUrl(endpointKey))
+//                .andReturn();
+//    }
+
     public static Response postMultipart(String endpointKey, File file, String token, String orgId) {
         return given()
                 .header("Authorization", "Bearer " + token)
                 .header(ORG_HEADER, orgId)
-                .multiPart("signature_file", file, "application/x-pkcs12") // explicit MIME type for .pfx
-//
+                .multiPart("uploaded_attachments", file, "application/pdf")
                 .when()
                 .post(getUrl(endpointKey))
                 .andReturn();
     }
 
 
-
-
-
+    //    =============== PUT METHODS =============
+public static Response put(String endpointKey, Object body) {
+    return given()
+            .spec(RequestSpecFactory.get())
+            .body(body)
+            .when()
+            .put(getUrl(endpointKey))
+            .andReturn();
+}
     // ========== PATCH METHODS ==========
 
     public static Response patch(String endpointKey, Object body, String token) {
@@ -243,17 +269,6 @@ public class ApiClient {
                 .patch(getUrl(endpointKey))
                 .andReturn();
     }
-
-    public static Response put(String endpointKey, Object body) {
-        return given()
-                .spec(RequestSpecFactory.get())
-                .body(body)
-                .when()
-                .put(getUrl(endpointKey))
-                .andReturn();
-    }
-
-
 
     public static Response patch(String endpointKey, Object body, String token,String orgId) {
         return given()
@@ -290,6 +305,7 @@ public class ApiClient {
                 .patch(url)
                 .andReturn();
     }
+
 
 
     // ========== DELETE METHODS ==========

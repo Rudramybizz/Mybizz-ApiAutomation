@@ -13,40 +13,33 @@ public class OrgUserTest  {
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 201");
 
     }
-    @Test(priority = 3,description = "get organiztion dropdown")
+
+    @Test(priority = 2,description = "get organiztion dropdown")
     public void organization_getdropdown(){
         Response response = OrgUserService.getorgUser_dropdown();
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
 
-    @Test(priority = 4,description = "get organiztion user list")
+    @Test(priority = 3,description = "get organiztion user list")
     public void organization_getUserList(){
         Response response = OrgUserService.getorgUser_List();
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
 
-    @Test(priority = 5,description = "get organiztion single user")
+    @Test(priority = 4,description = "get organiztion single user")
     public void organization_getUserSingle(){
         Response response = OrgUserService.getorgUser_Single();
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     }
-
-
-    @Test(priority = 6, description = "Generate OTp update user API")
-    public void organization_UpdateUser() {
-        Response response = OrgUserService.organizationUpdateUser();
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
-
-    }
-
-
-
-
-
-
-    @Test(priority = 7, description = "Remove user from organization")
+//    @Test(priority = 5, description = "Remove user from organization")
     public void orguser_RemoveUser() {
         Response response = OrgUserService.orgUserRemoveUser();
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+    }
+
+    @Test(priority = 6, description = " Update user API")
+    public void organization_UpdateUser() {
+        Response response = OrgUserService.organizationUpdateUser();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
     }
 

@@ -51,7 +51,6 @@ public class ApiLicenseService {
                 body,
                 token,
                 orgId
-
         );
         response.prettyPrint();
         return response;
@@ -187,7 +186,6 @@ public static Response publicApiDoctoBase(){
         response.prettyPrint();
         return response;
     }
-
 
     public static Response generateApiToken(){
         ApiUtil.waitForNextRequest();

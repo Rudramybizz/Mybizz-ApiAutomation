@@ -7,7 +7,7 @@ import smbedition.organization.services.OTPService;
 
 public class OTPTest {
 
-    @Test(priority = 1, description = "Generate OTp add user API")
+    @Test(priority = 1, description = "Generate OTP user API")
     public void testGenerateOtpAddUser() {
         Response response = OTPService.generateOtpAddUser();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");

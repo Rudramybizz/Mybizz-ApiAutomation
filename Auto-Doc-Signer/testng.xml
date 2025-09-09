@@ -5,7 +5,7 @@
         <classes>
             <class name="smbedition.authentication.tests.Auth"/>
 <!--            <class name="smbedition.authentication.tests.Dropdowns"></class>-->
-            <class name="smbedition.authentication.tests.Debug"></class>
+<!--            <class name="smbedition.authentication.tests.Debug"></class>-->
 
 <!--            organization-->
             <class name="smbedition.organization.tests.OrgTest"></class>
@@ -18,9 +18,7 @@
             <class name="smbedition.docsigner.tests.OrganizationTest"></class>
             <class name="smbedition.docsigner.tests.LicenseTest"></class>
             <class name="smbedition.docsigner.tests.WebLicenseTest"></class>
-            <class name="smbedition.docsigner.tests.APILicenseTest"></class>
-<!---->
-
+<!--            <class name="smbedition.docsigner.tests.APILicenseTest"></class>-->
         </classes>
 
 

@@ -111,7 +111,7 @@ private static void logResponse(String apiName, Response response) {
         }
         //  Build Request Body
         Map<String, Object> body = new HashMap<>();
-        body.put("purpose", "add_organization_user");
+        body.put("purpose", "update_organization_user");
         body.put("email", EncryptApi.encryptEmailTokenOrgId(otpemail));
         System.out.println(otpemail);
         body.put("first_name",EncryptApi.encryptFirstNameTokenOrgId(otpfirstName));
@@ -167,9 +167,6 @@ private static void logResponse(String apiName, Response response) {
         TestData.setOtpOrderIdRemoveUser(otpOrderIdRemoveuser);
         return response;
     }
-
-
-
 
 
 }

@@ -1,14 +1,12 @@
 package smbedition.docsigner.services;
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import smbedition.common.*;
-
-
 import java.io.File;
-import java.nio.file.Files;
 import java.util.*;
 
-import static io.restassured.RestAssured.given;
 
 public class WebLicenseService {
 
@@ -59,10 +57,8 @@ public class WebLicenseService {
 
         System.out.println("Response Status Code: " + response.getStatusCode());
         response.prettyPrint();
-
         return response;
     }
-
 
     public static Response addDigitalSignatureWithWrongPassword() {
         ApiUtil.waitForNextRequest();
@@ -83,7 +79,6 @@ public class WebLicenseService {
         return ApiClient.post("doc.adddigitalsignatureSucess", body, token, orgId);
     }
 
-
     public static Response addDigitalSignatureWithMissingPassword() {
         ApiUtil.waitForNextRequest();
         File signatureFile = new File("src/test/resources/cartlines.pfx");
@@ -94,11 +89,7 @@ public class WebLicenseService {
         return ApiClient.post("doc.adddigitalsignatureSucess", body, token, orgId);
     }
 
-
-
-
 //    ===============Digital Signature =============
-
     public static Response getDigitalSignature() {
         System.out.println("Get Digital Signature");
         System.out.println("token:"+token);
@@ -115,10 +106,6 @@ public class WebLicenseService {
         signatureId = response.jsonPath().getString("data.id");
         return response;
     }
-
-
-
-
 
     public static Response deleteDigitalSignature() {
         ApiUtil.waitForNextRequest();
@@ -236,7 +223,7 @@ public static  Response getSignatureProperties() {
   public static  Response getUsbToken(){
       String token = getTokenOrLogin();
       System.out.println("OrgId:"+orgId);
-
+//Non usable API
       Response response = ApiClient.get(
               "doc.getusbtoken",
               orgId,
@@ -247,18 +234,15 @@ public static  Response getSignatureProperties() {
       return response;
   }
 
-
   public static Response usbCertificate(){
       String token = getTokenOrLogin();
       System.out.println("token:"+token);
       System.out.println("OrgId:"+orgId);
-
-      Map<String, String> body = new HashMap<>();
+// Non Usable API
+       Map<String, String> body = new HashMap<>();
       body.put("label", "FT ePass2003Auto");
       body.put("serial", "3B9F958131FE9F006646530532022571DF000006000010");
       body.put("pin", "GVsiva@6623");
-
-
       Response response = ApiClient.post(
               "doc.usbCertificate",
               body,
@@ -273,28 +257,25 @@ public static  Response getSignatureProperties() {
   public static Response uploadDocuments(){
       ApiUtil.waitForNextRequest();
 
-      File signatureFile = new File("src/test/resources/dumy.pdf");
+//      File signatureFile = new File("src/test/resources/dumy.pdf");
+      File pdfFile = new File("src/test/resources/dumy.pdf");
 
-      if (!signatureFile.exists()) {
-          throw new RuntimeException("Signature file not found: " + signatureFile.getAbsolutePath());
+      if (!pdfFile.exists()) {
+          throw new RuntimeException("Signature file not found: " + pdfFile.getAbsolutePath());
       }
-
       Response response = ApiClient.postMultipart(
               "doc.uploadDocuments",
-              signatureFile,
+              pdfFile,
               token,
               orgId
       );
-
       System.out.println("Response Status Code: " + response.getStatusCode());
       response.prettyPrint();
 
       return response;
   }
-
-
-
-  public static  Response getDocumentError(){
+//Error
+  public static  Response getAllDocument(){
       String token = getTokenOrLogin();
       System.out.println("OrgId:"+orgId);
       Response response = ApiClient.get(
@@ -304,9 +285,9 @@ public static  Response getSignatureProperties() {
       );
 
       response.prettyPrint();
+      instanceId = response.jsonPath().getString("data.id");
+      System.out.println("Instance Id :"+instanceId);
       return response;
-
-
   }
 
 
@@ -321,7 +302,6 @@ public static Response getDocumentPendng(){
 
       response.prettyPrint();
 
-      instanceId = response.jsonPath().getString("data.id");
       return response;
 }
     public static Response getDocumentSigned(){
@@ -357,7 +337,85 @@ public static Response getDocumentPendng(){
         return response;
     }
 
-// ===========
+// =========== Add Signatories ============
+public static Response addSignatories() {
+    String token = getTokenOrLogin();
+    System.out.println("token:" + token);
+    System.out.println("OrgId:" + orgId);
+    System.out.println("Instance Id (raw):" + instanceId);
+    System.out.println("Signatory Id:" + TestData.getSignatoryId());
+    System.out.println("User Id for Signatory:" + TestData.getUseridForSignatory());
+
+    String cleanInstanceId = instanceId.replace("[", "").replace("]", "").trim();
+
+    Map<String, Object> body = new HashMap<>();
+    body.put("instance_ids", Arrays.asList(cleanInstanceId));
+    body.put("purpose", "add_signatory");
+
+    List<Map<String, Object>> signatoryList = new ArrayList<>();
+
+    Map<String, Object> signatory1 = new HashMap<>();
+    signatory1.put("serial_number", "1");
+    signatory1.put("signatory_id", TestData.getSignatoryId());
+    signatory1.put("user_id", TestData.getUseridForSignatory());
+    signatory1.put("pages_to_sign", Arrays.asList("1"));
+    signatory1.put("instruction_notes", "Please sign on page number 1");
+
+    signatoryList.add(signatory1);
+
+    // If you want a 2nd signatory, uncomment and add here
+    /*
+    Map<String, Object> signatory2 = new HashMap<>();
+    signatory2.put("serial_number", "2");
+    signatory2.put("signatory_id", "43951d69-0ec6-4b0a-adad-d1f2e8c9aa7b");
+    signatory2.put("user_id", "PUT-SECOND-USER-ID-HERE");
+    signatory2.put("pages_to_sign", Arrays.asList("1"));
+    signatory2.put("instruction_notes", "Please sign on page number 1");
+    signatoryList.add(signatory2);
+    */
+
+    body.put("signatory_data", signatoryList);
+
+    try {
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(body);
+        System.out.println("==== FINAL REQUEST BODY ====\n" + json);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    Response response = ApiClient.patch(
+            "doc.addSignatories",
+            body,
+            token,
+            orgId
+    );
+
+    response.prettyPrint();
+    return response;
+}
+
+
+    public static Response getAssignedSignatory(){
+        String token = getTokenOrLogin();
+        System.out.println("token:"+token);
+        System.out.println("OrgId:"+orgId);
+        System.out.println("Instance Id:"+instanceId);
+
+        Response response = ApiClient.get(
+                "doc.getassignedSignatory",
+                instanceId + "/view_signatories",
+                token,
+                orgId
+        );
+        response.prettyPrint();
+        return response;
+    }
+
+
+
+
+    // ===========Sign Document =============
     public static Response signDocumentSucess(){
         String token = getTokenOrLogin();
         System.out.println("token:"+token);
@@ -367,7 +425,6 @@ public static Response getDocumentPendng(){
         Map<String, Object> body = new HashMap<>();
         body.put("instance_ids", Arrays.asList(instanceId));
         body.put("sign_mode", "pfx");
-
         Map<String, Object> docProps = new HashMap<>();
         docProps.put("signature_position", "570,70,370,150");
         docProps.put("default_page_number", "first");
@@ -426,73 +483,6 @@ public static Response getDocumentPendng(){
         response.prettyPrint();
         return response;
     }
-
-
-    public static Response  addSignatories(){
-        String token = getTokenOrLogin();
-        System.out.println("token:"+token);
-        System.out.println("OrgId:"+orgId);
-        System.out.println("Instance Id:"+instanceId);
-
-        Map<String, Object> body = new HashMap<>();
-        body.put("instance_ids", Arrays.asList(instanceId));
-        body.put("purpose", "add_signatory");
-
-        List<Map<String, Object>> signatoryList = new ArrayList<>();
-
-        Map<String, Object> signatory1 = new HashMap<>();
-        signatory1.put("serial_number", "1");
-        signatory1.put("signatory_id", "43951d69-0ec6-4b0a-adad-d1f2e8c9aa7b");
-        signatory1.put("pages_to_sign", Arrays.asList("1"));
-        signatory1.put("instruction_notes", "Please sign on page number 1");
-
-        Map<String, Object> signatory2 = new HashMap<>();
-        signatory2.put("serial_number", "2");
-        signatory2.put("signatory_id", "43951d69-0ec6-4b0a-adad-d1f2e8c9aa7b");
-        signatory2.put("pages_to_sign", Arrays.asList("1"));
-        signatory2.put("instruction_notes", "Please sign on page number 1");
-
-        signatoryList.add(signatory1);
-        signatoryList.add(signatory2);
-
-        Response response = ApiClient.patch(
-                "doc.addSignatories",
-                body,
-                token,
-                orgId
-        );
-        response.prettyPrint();
-        return response;
-
-    }
-
-    public static Response getAssignedSignatory(){
-        String token = getTokenOrLogin();
-        System.out.println("token:"+token);
-        System.out.println("OrgId:"+orgId);
-        System.out.println("Instance Id:"+instanceId);
-
-        Response response = ApiClient.get(
-                "doc.getassignedSignatory",
-                instanceId + "/view_signatories",
-                token,
-                orgId
-        );
-
-        response.prettyPrint();
-        return response;
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 
 //  Need to pass work flow id.

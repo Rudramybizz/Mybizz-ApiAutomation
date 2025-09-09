@@ -16,6 +16,9 @@ public class TestData {
     private static String otpOrderIdUpdateUser;
     private static String otpOrderIdRemoveUser;
 
+    private static  String signatoryId;
+    private static  String useridForSignatory;
+
     public static String generateRandomEmail() {
         String chars = "abcdefghijklmnopqrstuvwxyz";
         String email = "";
@@ -212,21 +215,19 @@ public class TestData {
     public static  void  setOtpOrderId(String id){
         otpOrderId = id;
     }
-//    ==============Otp order id for update user ============
     public static  String getOtpOrderIdUpdateUser() {
         return otpOrderIdUpdateUser;
     }
     public static  void  setOtpOrderIdUpdateUser(String id){
         otpOrderIdUpdateUser = id;
     }
-
-//    ==============Otp order id for remove user ============
     public static  String getOtpOrderIdRemoveUser() {
         return otpOrderIdRemoveUser;
     }
     public static  void  setOtpOrderIdRemoveUser(String id){
         otpOrderIdRemoveUser = id;
     }
+
 
     public static String generateRandomEmpId(){
         int empId = 1000 + random.nextInt(9000);
@@ -255,6 +256,23 @@ public class TestData {
         int month = 1 + new Random().nextInt(12);
         return String.format("%02d/%02d/2025", day, month);
     }
+
+
+    public static String getSignatoryId() {
+        return signatoryId;
+    }
+    public static void setSignatoryId (String id){
+        signatoryId = id;
+    }
+
+    public static String getUseridForSignatory () {
+        return useridForSignatory;
+    }
+    public static void setUseridForSignatory (String id){
+        useridForSignatory =id;
+    }
+
+
 
 
 
