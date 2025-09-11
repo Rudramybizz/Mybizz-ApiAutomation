@@ -4,8 +4,8 @@
 
         <classes>
             <class name="smbedition.authentication.tests.Auth"/>
-<!--            <class name="smbedition.authentication.tests.Dropdowns"></class>-->
-<!--            <class name="smbedition.authentication.tests.Debug"></class>-->
+            <class name="smbedition.authentication.tests.Dropdowns"></class>
+            <class name="smbedition.authentication.tests.Debug"></class>
 
 <!--            organization-->
             <class name="smbedition.organization.tests.OrgTest"></class>
@@ -21,9 +21,11 @@
 <!--            <class name="smbedition.docsigner.tests.APILicenseTest"></class>-->
         </classes>
 
-
     </test>
 <!--    <listeners>-->
 <!--        <listener class-name="smbedition.authentication.util.TestListener"/>-->
 <!--    </listeners>-->
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
 </suite>

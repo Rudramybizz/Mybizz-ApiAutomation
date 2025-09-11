@@ -1,0 +1,21 @@
+{
+    "success": "1",
+    "message": "Functionalities found successfully",
+    "data": [
+        {
+            "id": "c9faf0a4-1dfe-4f5f-8a9d-6928991f5035",
+            "permission": "full_rights",
+            "functionality_name": "Documents"
+        },
+        {
+            "id": "76a8f255-aee8-4aba-b9e3-377283e35be0",
+            "permission": "full_rights",
+            "functionality_name": "License Info"
+        },
+        {
+            "id": "ad73181c-3205-4557-814a-f96dd1d2fe47",
+            "permission": "full_rights",
+            "functionality_name": "Settings"
+        }
+    ]
+}

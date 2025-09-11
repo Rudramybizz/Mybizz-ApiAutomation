@@ -17,7 +17,9 @@ public class TestData {
     private static String otpOrderIdRemoveUser;
 
     private static  String signatoryId;
+    private static  String signatoryId2;
     private static  String useridForSignatory;
+    private static  String  useridForSignatory2;
 
     public static String generateRandomEmail() {
         String chars = "abcdefghijklmnopqrstuvwxyz";
@@ -265,6 +267,15 @@ public class TestData {
         signatoryId = id;
     }
 
+
+    public static String getSignatoryId2() {
+        return signatoryId2;
+    }
+    public static void setSignatoryId2 (String id){
+        signatoryId2= id;
+    }
+
+
     public static String getUseridForSignatory () {
         return useridForSignatory;
     }
@@ -272,12 +283,12 @@ public class TestData {
         useridForSignatory =id;
     }
 
-
-
-
-
-
-
+    public static String getUseridForSignatory2 () {
+        return useridForSignatory2;
+    }
+    public static void setUseridForSignatory2 (String id){
+        useridForSignatory2 =id;
+    }
 
 
 }

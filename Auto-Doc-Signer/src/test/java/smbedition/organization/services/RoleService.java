@@ -6,10 +6,7 @@ import smbedition.common.TestData;
 import smbedition.common.TokenManager;
 import smbedition.common.ApiClient;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static smbedition.common.TokenManager.token;
 
@@ -61,7 +58,6 @@ public class RoleService {
 
         return response;
     }
-
 
 
     // ================== Create Multiple Roles ==================
@@ -146,6 +142,7 @@ public class RoleService {
 
         return lastResponse;
     }
+
 
 
     // ================== Get Roles ==================

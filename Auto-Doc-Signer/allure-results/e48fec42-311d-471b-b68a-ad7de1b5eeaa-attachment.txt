@@ -1,0 +1,20 @@
+{
+    "success": "1",
+    "message": "Active session(s) found successfully",
+    "data": [
+        {
+            "id": "71ad32a1-0d05-4db4-9e38-d9357f823bd3",
+            "user_agent": "Apache-HttpClient/4.5.13 (Java/17.0.16)",
+            "token_usage_ip": "10.224.0.5",
+            "browser_name": "Unknown",
+            "is_current_session": true
+        },
+        {
+            "id": "16a8d5f4-59a0-49e3-9a08-d2f81b3cd14d",
+            "user_agent": "Apache-HttpClient/4.5.13 (Java/17.0.16)",
+            "token_usage_ip": "10.224.0.4",
+            "browser_name": "Unknown",
+            "is_current_session": false
+        }
+    ]
+}

@@ -19,8 +19,10 @@ public class OrgUserService {
     private static String otpLastName = TestData.generateRandomLastName();
     private static String otpMobile = TestData.generateRandomMobile();
     private static String orgId = TestData.getOrgId();
-    public static String orgUserUpdate;
+    public static String orgUserUpdate1;
+    public static  String orgUserUpdate2;
     private static String userId;
+    private static String userId2;
 
 
     private static String getTokenOrLogin() {
@@ -147,7 +149,6 @@ public static Response organizationAddUser(){
     return response;
 }
 
-
     public  static Response getorgUser_dropdown(){
         System.out.println("=====get organization User dropdown API=====");
         ApiUtil.waitForNextRequest();
@@ -159,6 +160,7 @@ public static Response organizationAddUser(){
         return response;
     }
 
+
     public static Response getorgUser_List(){
         System.out.println("=====get organization User List API=====");
         ApiUtil.waitForNextRequest();
@@ -167,15 +169,19 @@ public static Response organizationAddUser(){
         Response response = ApiClient.get("org.getorgUser.list",orgId,token);
         System.out.println("Response Status Code: " + response.getStatusCode());
         userId = response.jsonPath().getString("data[0].id");
+        userId2 = response.jsonPath().getString("data[1].id");
         TestData.setSignatoryId(userId);
+        TestData.setSignatoryId2(userId2);
+
         TestData.setUseridForSignatory(response.jsonPath().getString("data[0].user_details.id"));
+        TestData.setUseridForSignatory2(response.jsonPath().getString("data[1].user_details.id"));
         response.prettyPrint();
         return response;
     }
 
 
-    public static Response getorgUser_Single(){
 
+    public static Response getorgUser_Single(){
         String orgId = TestData.getOrgId();
         if (token == null || token.isEmpty()) {
             token = getTokenOrLogin();
@@ -220,7 +226,8 @@ public static Response organizationAddUser(){
         System.out.println("======= Update User Request Body =======");
         body.forEach((k, v) -> System.out.println(k + " : " + v));
         System.out.println("Order Id: " + orderId);
-        System.out.println("User Id: " + userId);
+        System.out.println("First User Id: " + userId);
+
         System.out.println("========================================");
 
         Response response = ApiClient.post(

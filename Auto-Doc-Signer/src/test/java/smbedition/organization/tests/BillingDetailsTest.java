@@ -4,7 +4,6 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import smbedition.organization.services.BillingDetailsService;
-import smbedition.organization.services.OrgUserService;
 
 public class BillingDetailsTest {
 
@@ -39,8 +38,6 @@ public class BillingDetailsTest {
         Response response = BillingDetailsService.licensePaymentAPI();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
     }
-
-
 
 
 }

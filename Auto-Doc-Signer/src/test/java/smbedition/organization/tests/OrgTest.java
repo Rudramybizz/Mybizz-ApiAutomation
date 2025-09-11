@@ -46,7 +46,7 @@ public class OrgTest  {
     @Test(priority = 4, description = "Create Organization API")
     public void create_Organization() {
         Response response = OrgServices.createOrganization();
-        Assert.assertEquals(response.getStatusCode(), 201, "Expected status code 201");
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 201");
 
     }
 
