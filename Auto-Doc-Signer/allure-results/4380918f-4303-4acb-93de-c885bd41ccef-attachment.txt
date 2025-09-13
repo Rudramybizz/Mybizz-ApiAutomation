@@ -1,0 +1,6 @@
+{
+    "success": "1",
+    "message": "Otp generated successfully",
+    "order_id": "202509113044",
+    "code": "1"
+}

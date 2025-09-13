@@ -67,11 +67,11 @@ public class ApiClient {
     }
 
 
-
     public static Response get(String endpointKey, String orgId,String token ){
         return given()
                 .spec(smbedition.common.RequestSpecFactory.get())
                 .header("Authorization", "Bearer " + token)
+                .header("user-agent", "PostmanRuntime/7.46.0")
                 .header(ORG_HEADER, orgId)
                 .when()
                 .get(getUrl(endpointKey))
@@ -144,6 +144,18 @@ public class ApiClient {
                 .andReturn();
     }
 
+    public static Response getWithHeaders(String endpointKey, Map<String, String> headers) {
+        var request = given().spec(RequestSpecFactory.get());
+
+        if (headers != null && !headers.isEmpty()) {
+            headers.forEach(request::header);
+        }
+
+        return request
+                .when()
+                .get(getUrl(endpointKey))
+                .andReturn();
+    }
 
 
 
@@ -165,9 +177,6 @@ public class ApiClient {
                 .post(url)
                 .andReturn();
     }
-
-
-
 
     public static Response post(String endpointKey, Object body, String token) {
         return given()
@@ -198,7 +207,6 @@ public class ApiClient {
                 .when()
                 .post(getUrl(endpointKey))
                 .andReturn();
-
     }
 
     public static Response post(String endpointKey, String pathParam, Object body, String token, String orgId) {
@@ -213,7 +221,6 @@ public class ApiClient {
                 .post(url)
                 .andReturn();
     }
-
 
 
     public static Response postMultipart(String endpointKey, File file, String password, String token, String orgId) {
@@ -248,6 +255,68 @@ public class ApiClient {
                 .andReturn();
     }
 
+    public static Response postdoc(String endpointKey, File file, String token, String orgId) {
+        return given()
+                .header("Authorization", "Bearer " + token)
+                .header(ORG_HEADER, orgId)
+                .multiPart("uploaded_documents", file, "application/pdf")
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+    }
+
+
+    public static Response postWithHeaders(String endpointKey, Map<String, String> headers) {
+        var request = given().spec(RequestSpecFactory.get());
+
+        if (headers != null && !headers.isEmpty()) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                request.header(entry.getKey(), entry.getValue());
+            }
+        }
+        return request
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+    }
+
+
+
+
+    public static Response postMultipartWithHeaders(String endpointKey, File file, String password, Map<String, String> headers) {
+//        var request = given().spec(RequestSpecFactory.get());
+        var request = given();
+        if (headers != null && !headers.isEmpty()) {
+            headers.forEach(request::header);
+        }
+        request.multiPart("signature_file", file, "application/x-pkcs12");
+        request.multiPart("password", password);
+
+        return request
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+    }
+
+
+
+
+
+
+
+    public static Response postWithBodyAndHeaders(String endpointKey, Object body, Map<String, String> headers) {
+        var request = given().spec(RequestSpecFactory.get());
+
+        if (headers != null && !headers.isEmpty()) {
+            headers.forEach(request::header);
+        }
+
+        return request
+                .body(body)
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+    }
 
     //    =============== PUT METHODS =============
 public static Response put(String endpointKey, Object body) {
@@ -328,16 +397,5 @@ public static Response put(String endpointKey, Object body) {
                 .delete(url)
                 .andReturn();
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

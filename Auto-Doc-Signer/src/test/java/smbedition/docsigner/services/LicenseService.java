@@ -57,9 +57,9 @@ public class LicenseService {
         );
         System.out.println("Response Status Code: " + response.getStatusCode());
         response.prettyPrint();
-
+        String licenseId = response.jsonPath().getString("data[0].license_id");
+        TestData.setLicenseId(licenseId);
         return response;
-
     }
 
 

@@ -206,4 +206,44 @@ public class EncryptApi {
 
 
 
+
+
+//        Decrypt por API Token
+    public static String decryptField(String encryptedValue) {
+        // Build details map
+        Map<String, Object> details = new HashMap<>();
+        details.put("user-agent", "PostmanRuntime/7.46.0");
+        details.put("login-token", TokenManager.get());
+        details.put("organization-id", TestData.getOrgId());
+        details.put("organization-name", TestData.getOrgName());
+
+        // Build main payload
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("data", encryptedValue);
+        payload.put("details", details);
+
+        Response response = given()
+                .header("Content-Type", "application/json")
+                .body(payload)
+                .log().all()
+                .when()
+                .post("http://10.1.0.10:8282/api/v1/decrypt")
+                .then()
+                .log().all()
+                .extract()
+                .response();
+
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("Decryption API failed with status code " + response.statusCode());
+        }
+
+        String decryptedValue = response.jsonPath().getString("data");
+        if (decryptedValue == null || decryptedValue.isEmpty()) {
+            throw new RuntimeException("Decrypted value is null or empty");
+        }
+        response.prettyPrint();
+        return decryptedValue;
+    }
+
+
 }

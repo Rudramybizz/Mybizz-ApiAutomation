@@ -33,7 +33,7 @@ public class DesktopLicenseService {
         response.prettyPrint();
         System.out.println("========================");
     }
-
+//
 
     public static Response activeLicense(){
         ApiUtil.waitForNextRequest();

@@ -1,0 +1,7 @@
+{
+    "success": "1",
+    "message": "Registration successful",
+    "data": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhYjMyMDU0YS1kNjMwLTQ3YzQtOTE3Yi04ZmM3ZGVjMDlmNGQiLCJleHAiOjE3NTc2NzM3ODksImlhdCI6MTc1NzY1MjE4OX0.ru_vV8IV3FYAvQ6Wnl7bD7Jv_MNzwskhMh_j1LpHYq4"
+    }
+}

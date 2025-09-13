@@ -1,0 +1,40 @@
+{
+    "success": "1",
+    "message": "License invoice(s) found successfully",
+    "data": [
+        {
+            "id": "b2c754cf-66e2-4409-8c36-071d1f9efadb",
+            "invoice_number": "2509133",
+            "invoice_date": "13/09/2025",
+            "organization_name": "DRAG AND DROP INDIA PRIVATE LIMITED",
+            "application": "WEB",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "13/09/2025",
+            "end_date": "12/09/2026",
+            "next_billing_date": "13/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        },
+        {
+            "id": "794c3d03-84f8-4fd4-b9a0-1573b807f4f4",
+            "invoice_number": "2509134",
+            "invoice_date": "13/09/2025",
+            "organization_name": "DRAG AND DROP INDIA PRIVATE LIMITED",
+            "application": "API",
+            "plan_type": "Basic",
+            "billing_cycle": "Annual",
+            "start_date": "13/09/2025",
+            "end_date": "12/09/2026",
+            "next_billing_date": "13/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 14160.0,
+            "total_credits": 1200,
+            "used_credits": 0,
+            "credit_balance": 1200
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "success": "1",
+    "message": "License invoice(s) found successfully",
+    "data": [
+        {
+            "id": "0f577276-cb7a-4004-9ead-44bfc2c127e9",
+            "invoice_number": "2509115",
+            "invoice_date": "11/09/2025",
+            "organization_name": "FUSION DIGITAL PRIVATE LIMITED",
+            "application": "WEB",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "11/09/2025",
+            "end_date": "10/09/2026",
+            "next_billing_date": "11/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        },
+        {
+            "id": "699d3860-9167-4dfb-aa16-9957795a8f72",
+            "invoice_number": "2509116",
+            "invoice_date": "11/09/2025",
+            "organization_name": "FUSION DIGITAL PRIVATE LIMITED",
+            "application": "API",
+            "plan_type": "Basic",
+            "billing_cycle": "Annual",
+            "start_date": "11/09/2025",
+            "end_date": "10/09/2026",
+            "next_billing_date": "11/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 14160.0,
+            "total_credits": 1200,
+            "used_credits": 0,
+            "credit_balance": 1200
+        }
+    ]
+}

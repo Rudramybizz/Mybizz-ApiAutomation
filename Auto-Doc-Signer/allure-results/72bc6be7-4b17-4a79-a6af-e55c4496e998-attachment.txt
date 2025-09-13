@@ -1,0 +1,18 @@
+{
+    "success": "0",
+    "message": "Please ensure that all the filled details are correct",
+    "data": {
+        "first_name": [
+            "This field may not be blank."
+        ],
+        "last_name": [
+            "This field may not be blank."
+        ],
+        "dialing_code_id": [
+            "This field may not be blank."
+        ],
+        "country_id": [
+            "This field may not be blank."
+        ]
+    }
+}

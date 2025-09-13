@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "05acf554-5d30-45b9-b8d3-fbe48168f6b0",
+            "start_date": "12/09/2025",
+            "valid_upto": "11/09/2026",
+            "organization_name": "GLOBAL TECH PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250912007"
+        },
+        {
+            "id": "5354f80d-ac1e-4185-8c03-ff4dd99f0bb6",
+            "start_date": "12/09/2025",
+            "valid_upto": "11/09/2026",
+            "organization_name": "GLOBAL TECH PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250912007"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "73de6aef-4ba2-4ce8-8733-9254db7dd923",
+            "start_date": "12/09/2025",
+            "valid_upto": "11/09/2026",
+            "organization_name": "QUANTUM SYSTEMS PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250912004"
+        },
+        {
+            "id": "98de05d4-4a00-4bc5-8d3f-7686d50dd5ee",
+            "start_date": "12/09/2025",
+            "valid_upto": "11/09/2026",
+            "organization_name": "QUANTUM SYSTEMS PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250912004"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

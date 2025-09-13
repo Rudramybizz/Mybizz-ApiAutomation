@@ -1,0 +1,18 @@
+{
+    "success": "1",
+    "message": "Profile updated successfully",
+    "data": {
+        "first_name": "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SndZWGxzYjJGa0lqb2lla1paUkZCc1QxTXpTaloyUmxVdkwwTnNlSFJZZHowOUxtTjZTVEZTUkVwWFZUQnNUVkpYVGsxVE1rMTZZMEU5UFNKOS4zcGVKWW1ZMzh5X2xxVjNWVjdDZUIwTnFxQ3F1cTdtbW8wazJUVExsQmdr",
+        "last_name": "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SndZWGxzYjJGa0lqb2lTRTVFUzBKc2NWVk9hMGxUTDNCSVNGSlRVbFZQWnowOUxsTXhZekpWTWpsVlV6QmtTbEZ0ZUhOVGJFNU5aVkU5UFNKOS56X0VCdUtfdjdsNEIxV0g4cnRuR0dCMXFDUTNNcjAwVDJaSTRuODlZMHpZ",
+        "email": "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SndZWGxzYjJGa0lqb2lhMnhMYVhwd0wxVnRURUV2WmtSdlJIQmtNbXBGVmpGWk4zTXpNVlJaYWpoM1oya3plazUxTlVjdlNUMHVXakExZDFkVk5WQmllazVVV25wR1dGcHRPVVZhUVQwOUluMC5HS0VoWmlUVkhSdWxmcFg1cjNSWEdJNXBsYTZWZjdvNXNCQkdLM1FNc3N3",
+        "phone": "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SndZWGxzYjJGa0lqb2lSQ3MxUTNSRFJreEhkR3RMU2tWRmVIQjFRbVptVVQwOUxsb3hiRWxYVjFaSVlXeENTR0ZFV21oaVJFWnlUbWM5UFNKOS5wTUtxOTZlTmRWY216WU1rdlg3aEl0WlRzd01nWkFRV2hhemNGdUhjZmQ4",
+        "dialing_code_id": "IN",
+        "is_phone_verified": false,
+        "is_email_verified": true,
+        "country_id": "IN",
+        "profile_picture_id": "",
+        "organization": {
+            
+        }
+    }
+}

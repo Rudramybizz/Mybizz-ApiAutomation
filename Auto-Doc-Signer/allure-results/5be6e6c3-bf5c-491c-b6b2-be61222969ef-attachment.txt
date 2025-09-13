@@ -1,0 +1,10 @@
+{
+    "success": "0",
+    "message": "Please ensure that all the details are filled correctly",
+    "data": {
+        "email": [
+            "We couldn’t find your account. Please register."
+        ]
+    },
+    "code": "00000"
+}

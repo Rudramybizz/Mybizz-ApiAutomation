@@ -12,7 +12,7 @@ import smbedition.docsigner.services.ApiLicenseService;
 public class APILicenseTest extends BaseTest {
 
     @Test(priority = 1)
-    @Story("User Registration Generate OTP")
+    @Story(" Manage API Credential.")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Manage API Credentials.")
     public void manageApi_Credentials() {
@@ -32,15 +32,18 @@ public class APILicenseTest extends BaseTest {
         Allure.addAttachment("Get API Credentials Response", response.getBody().asPrettyString());
     }
 
+
+
     @Test(priority = 3)
-    @Story("Get API Log .")
+    @Story("Generate API Token .")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Get API Log")
-    public void get_api_Log(){
-        Response response = ApiLicenseService.getapiLog();
+    @Description("Generate API Token")
+    public void  generateApi_Token(){
+        Response response = ApiLicenseService.generateApiToken();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
-        Allure.addAttachment("Get API Log Response", response.getBody().asPrettyString());
+        Allure.addAttachment("Generate API token Response", response.getBody().asPrettyString());
     }
+
 
     @Test(priority = 4)
     @Story(" Upload Digital Signature with API Key.")
@@ -63,14 +66,15 @@ public class APILicenseTest extends BaseTest {
     }
 
     @Test(priority = 6)
-    @Story("Delete Digital Signature API Key.")
+    @Story("Get API Log .")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Delete Digital Signature with API Key")
-    public void delete_DigitalSignature_ApiKey(){
-        Response response = ApiLicenseService.deleteDigitalSignatureApiKey();
+    @Description("Get API Log")
+    public void get_api_Log(){
+        Response response = ApiLicenseService.getapiLog();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
-        Allure.addAttachment("Delete Digital Signature with API Key Response", response.getBody().asPrettyString());
+        Allure.addAttachment("Get API Log Response", response.getBody().asPrettyString());
     }
+
 
     @Test(priority = 7)
     @Story(" Doc to Base API .")
@@ -82,25 +86,45 @@ public class APILicenseTest extends BaseTest {
         Allure.addAttachment("Public API Docto Base API Key Response", response.getBody().asPrettyString());
     }
 
+
     @Test(priority = 8)
+    @Story(" Sign Document API .")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Sign Document API")
+    public void signDocument(){
+        Response response = ApiLicenseService.signdocumentApiToken();
+        Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
+        Allure.addAttachment(" Sign on Document  Response", response.getBody().asPrettyString());
+    }
+
+
+    @Test(priority = 9)
     @Story(" Base to Doc API .")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Public API Base to Doc")
     public void publicApi_Baseto_Doc(){
-        Response response = ApiLicenseService.publicApiDoctoBase();
+        Response response = ApiLicenseService.publicApiBasetoDoc();
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
         Allure.addAttachment("Public API Base to Doc API Key Response", response.getBody().asPrettyString());
     }
 
-    @Test(priority = 9)
-    @Story("Generate API Token .")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Generate API Token")
-    public void  generateApi_Token(){
-        Response response = ApiLicenseService.generateApiToken();
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
-        Allure.addAttachment("Generate API token Response", response.getBody().asPrettyString());
 
-    }
+
+
+
+
+
+    // @Test(priority = 8)
+//    @Story("Delete Digital Signature API Key.")
+//    @Severity(SeverityLevel.CRITICAL)
+//    @Description("Delete Digital Signature with API Key")
+//    public void delete_DigitalSignature_ApiKey(){
+//        Response response = ApiLicenseService.deleteDigitalSignatureApiKey();
+//        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+//        Allure.addAttachment("Delete Digital Signature with API Key Response", response.getBody().asPrettyString());
+//    }
+//
+//
+
 
 }

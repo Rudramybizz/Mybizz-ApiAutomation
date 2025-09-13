@@ -20,6 +20,9 @@ public class TestData {
     private static  String signatoryId2;
     private static  String useridForSignatory;
     private static  String  useridForSignatory2;
+    private static  String  orgName;
+
+    private static  String licenseId;
 
     public static String generateRandomEmail() {
         String chars = "abcdefghijklmnopqrstuvwxyz";
@@ -290,5 +293,12 @@ public class TestData {
         useridForSignatory2 =id;
     }
 
+
+    public static String getLicenseId(){return licenseId;}
+    public static void setLicenseId(String id){licenseId=id;}
+
+
+    public static String getOrgName(){return orgName;}
+    public static void setOrgName(String id){orgName=id;}
 
 }

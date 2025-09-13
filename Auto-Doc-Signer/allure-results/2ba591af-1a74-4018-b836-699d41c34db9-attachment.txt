@@ -1,0 +1,40 @@
+{
+    "success": "1",
+    "message": "License invoice(s) found successfully",
+    "data": [
+        {
+            "id": "d8b0e874-34ea-401d-9a64-bedf381f9c04",
+            "invoice_number": "25091312",
+            "invoice_date": "13/09/2025",
+            "organization_name": "VISION INDIA PRIVATE LIMITED",
+            "application": "WEB",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "13/09/2025",
+            "end_date": "12/09/2026",
+            "next_billing_date": "13/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        },
+        {
+            "id": "600888a9-fa1f-49b4-b93d-7ea5e0f710cd",
+            "invoice_number": "25091313",
+            "invoice_date": "13/09/2025",
+            "organization_name": "VISION INDIA PRIVATE LIMITED",
+            "application": "API",
+            "plan_type": "Basic",
+            "billing_cycle": "Annual",
+            "start_date": "13/09/2025",
+            "end_date": "12/09/2026",
+            "next_billing_date": "13/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 14160.0,
+            "total_credits": 1200,
+            "used_credits": 0,
+            "credit_balance": 1200
+        }
+    ]
+}

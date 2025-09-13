@@ -122,6 +122,7 @@ public static List<String> getCityIds() {
         ApiUtil.waitForNextRequest();
         System.out.println(orgId);
         TestData.setOrgId(orgId);
+        TestData.setOrgName(response.jsonPath().getString("data[0].name"));
         response.prettyPrint();
 
         return response;

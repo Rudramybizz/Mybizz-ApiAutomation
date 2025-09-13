@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "9ea45814-87a1-4ad4-8cab-9a90d7deab3f",
+            "start_date": "11/09/2025",
+            "valid_upto": "10/09/2026",
+            "organization_name": "QUANTUM INDIA PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250911005"
+        },
+        {
+            "id": "736ff2bc-8226-41d7-82e0-942b63ba3b60",
+            "start_date": "11/09/2025",
+            "valid_upto": "10/09/2026",
+            "organization_name": "QUANTUM INDIA PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250911005"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}
