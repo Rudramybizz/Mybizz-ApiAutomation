@@ -1,0 +1,40 @@
+{
+    "success": "1",
+    "message": "License invoice(s) found successfully",
+    "data": [
+        {
+            "id": "4d6155d4-f076-45c8-a3f1-2ce8a62efb0f",
+            "invoice_number": "25091319",
+            "invoice_date": "13/09/2025",
+            "organization_name": "VISION SOFTWARE PRIVATE LIMITED",
+            "application": "WEB",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "13/09/2025",
+            "end_date": "12/09/2026",
+            "next_billing_date": "13/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        },
+        {
+            "id": "f6a93dfd-7cff-4655-aa25-089ab5aae7c0",
+            "invoice_number": "25091320",
+            "invoice_date": "13/09/2025",
+            "organization_name": "VISION SOFTWARE PRIVATE LIMITED",
+            "application": "API",
+            "plan_type": "Basic",
+            "billing_cycle": "Annual",
+            "start_date": "13/09/2025",
+            "end_date": "12/09/2026",
+            "next_billing_date": "13/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 14160.0,
+            "total_credits": 1200,
+            "used_credits": 0,
+            "credit_balance": 1200
+        }
+    ]
+}

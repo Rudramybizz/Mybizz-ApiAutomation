@@ -1,0 +1,17 @@
+{
+    "success": "1",
+    "message": "Assigned signatories found successfully",
+    "data": [
+        {
+            "id": "1ef46676-85e6-4585-b3f0-1a2052c53b7f",
+            "date_added": "13/09/2025",
+            "serial_number": 2,
+            "signatory_id": "b4a468a4-8107-4fe1-98af-afcd1d63cf2c",
+            "user_id": "9070639a-b1a8-4633-b275-c701eeb64330",
+            "pages_to_sign": [
+                1
+            ],
+            "instruction_notes": "Please sign on page number 1"
+        }
+    ]
+}
