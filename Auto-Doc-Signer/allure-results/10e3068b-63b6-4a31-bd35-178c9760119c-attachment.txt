@@ -1,0 +1,8 @@
+{
+    "success": "1",
+    "message": "Privacy and security details found successfully",
+    "data": {
+        "id": "a0b478f0-eef0-4e46-b068-3f91c0c73a1a",
+        "enable_two_factor_authentication": true
+    }
+}

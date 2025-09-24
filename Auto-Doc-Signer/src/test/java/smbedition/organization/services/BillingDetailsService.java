@@ -192,7 +192,7 @@ public static Response updateBillingDetails() {
         body.put("request_plan", "new");
         body.put("region", "india");
         body.put("desktop_type","api");
-        body.put("plan_type","basic");
+        body.put("plan_type","unlimited"); // basic/premium/unlimited
         body.put("license_period",12);
         body.put("add_ons_quantity",0);
 
@@ -210,7 +210,45 @@ public static Response updateBillingDetails() {
 
 
 
+    public static Response licensePaymentWindows(){
+        System.out.println("=====License Payment Test Windows =====");
+        ApiUtil.waitForNextRequest();
+        System.out.println("organization Id:"+orgId);
 
+        if (token == null || token.isEmpty()) {
+            token = getTokenOrLogin();
+        }
+        System.out.println("Token:"+token);
+        System.out.println("Organization Id:"+orgId);
+        System.out.println("Billing Details Id:"+billingdetailsid);
 
+//    TestData.generateAddress()
+        Map<String, Object> body = new HashMap<>();
+        body.put("billing_details_id", billingdetailsid);
+//        body.put("request_plan", "new");
+//        body.put("region", "india");
+//        body.put("desktop_type", "web");
+//        body.put("plan_type", "basic");
+//        body.put("license_period", 12);
+//        body.put("add_ons_quantity", 1);
+
+        body.put("request_plan", "new");
+        body.put("region", "india");
+        body.put("desktop_type","windows");// windows/linux/mac/web/api
+        body.put("plan_type","Unlimited"); // basic/premium/unlimited
+        body.put("license_period",12);
+        body.put("add_ons_quantity",0);
+
+        Response response = ApiClient.post(
+                "doc.licensepaymenttest",
+                body,
+                token,
+                orgId
+        );
+        System.out.println("Response Status Code: " + response.getStatusCode());
+
+        response.prettyPrint();
+        return response;
+    }
 
 }

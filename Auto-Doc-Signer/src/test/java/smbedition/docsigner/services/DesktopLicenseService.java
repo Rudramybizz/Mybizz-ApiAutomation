@@ -22,17 +22,7 @@ public class DesktopLicenseService {
         System.out.println("Token successfully retrieved: " + token);
         return token;
     }
-    private static void logRequest(String apiName, String body) {
-        System.out.println("=== " + apiName + " Request ===");
-        System.out.println(body);
-        System.out.println("========================");
-    }
-    private static void logResponse(String apiName, Response response) {
-        System.out.println("=== " + apiName + " Response ===");
-        System.out.println("Status Code: " + response.getStatusCode());
-        response.prettyPrint();
-        System.out.println("========================");
-    }
+
 //
 
     public static Response activeLicense(){
@@ -46,7 +36,7 @@ public class DesktopLicenseService {
         body.put("admin_email","gayathri.k@ddindia.biz");
 
         Response response = ApiClient.post(
-                "doc.manageapicredentials",
+                "doc.activateLicense",
                 body,
                 token,
                 orgId

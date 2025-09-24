@@ -47,8 +47,8 @@ public class ApiLicenseService {
         System.out.println("OrgId:"+orgId);
 
         Map<String, Object> body = new HashMap<>();
-         body.put("enable_api_access", true);
-         body.put("regenerate",false);
+         body.put( "app_name", "APP1");
+//         body.put("regenerate",false);
 
         Response response = ApiClient.post(
                 "doc.manageapicredentials",
@@ -229,7 +229,8 @@ public static Response publicApiDoctoBase(){
         System.out.println("token:"+token);
         System.out.println("OrgId:"+orgId);
         System.out.println("Api Token :"+apiToken);
-
+        System.out.println("Base64:"+base64);
+        System.out.println("File Name:"+filename);
         Map<String, Object> documentData = new HashMap<>();
         documentData.put("base64", base64);
         documentData.put("file_name", filename);

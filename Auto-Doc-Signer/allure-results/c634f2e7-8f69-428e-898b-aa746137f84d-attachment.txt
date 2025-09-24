@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "dab0f834-4a13-4322-a130-0190dc4ce581",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "FUSION DIGITAL PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250913016"
+        },
+        {
+            "id": "25e5c84e-d4f6-4397-9a52-474b7b663798",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "FUSION DIGITAL PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250913017"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

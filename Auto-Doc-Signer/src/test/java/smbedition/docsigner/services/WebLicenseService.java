@@ -112,28 +112,6 @@ public class WebLicenseService {
         return response;
     }
 
-    public static Response deleteDigitalSignature() {
-        ApiUtil.waitForNextRequest();
-        if (signatureId==null|| signatureId .isEmpty()){
-         System.out.println("Signature ID is null or empty. Fetching Digital Signature to get a valid ID.");
-        }
-
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("purpose", "delete");
-
-        Response response = ApiClient.patch(
-                "doc.deletedigitalsignature",
-                signatureId,
-                null,
-                queryParams,
-                token,
-                orgId
-        );
-        logResponse("Delete Digital Signature", response);
-        response.prettyPrint();
-
-        return response;
-    }
 
 
 
@@ -728,6 +706,33 @@ public static Response downloadDocument(){
         response.prettyPrint();
         return response;
     }
+
+
+    public static Response deleteDigitalSignature() {
+        ApiUtil.waitForNextRequest();
+        if (signatureId==null|| signatureId .isEmpty()){
+            System.out.println("Signature ID is null or empty. Fetching Digital Signature to get a valid ID.");
+        }
+
+        Map<String, String> queryParams = new HashMap<>();
+        queryParams.put("purpose", "delete");
+
+        Response response = ApiClient.patch(
+                "doc.deletedigitalsignature",
+                signatureId,
+                null,
+                queryParams,
+                token,
+                orgId
+        );
+        logResponse("Delete Digital Signature", response);
+        response.prettyPrint();
+
+        return response;
+    }
+
+
+
 
 
 

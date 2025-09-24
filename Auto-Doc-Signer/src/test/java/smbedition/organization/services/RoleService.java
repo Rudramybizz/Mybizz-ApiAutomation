@@ -61,87 +61,125 @@ public class RoleService {
 
 
     // ================== Create Multiple Roles ==================
-    public static Response createMultipleRoles() {
+//    public static Response createMultipleRoles() {
+//        String orgId = TestData.getOrgId();
+//
+//        if (token == null || token.isEmpty()) {
+//            token = getTokenOrLogin();
+//        }
+//
+//        // List of roles to test (positive + negative scenarios)
+//        String[][] roles = {
+//                {"Accounts Manager", "ACM-001", "Deals with accounts"},
+//                {"HR Manager", "HR-002", "Handles HR operations"},
+//                {"Admin", "ADM-003", "System administrator"},
+//                {"", "INV-001", "Missing role name"},
+//                {"Duplicate Role", "ACM-001", "Duplicate roleId"}
+//        };
+//
+//        Response lastResponse = null;
+//
+//        for (String[] role : roles) {
+//            String name = role[0];
+//            String roleId = role[1];
+//            String description = role[2];
+//
+//            String requestBody = "{\n" +
+//                    "    \"name\": \"" + name + "\",\n" +
+//                    "    \"role_id\": \"" + roleId + "\",\n" +
+//                    "    \"description\": \"" + description + "\",\n" +
+//                    "    \"functionality_groups\": [\n" +
+//                    "        {\n" +
+//                    "            \"code\": \"auto_doc_signer\",\n" +
+//                    "            \"name\": \"Auto Doc Signer (Digital Signatures)\",\n" +
+//                    "            \"functionalities\": [\n" +
+//                    "                {\n" +
+//                    "                    \"code\": \"documents\",\n" +
+//                    "                    \"name\": \"Documents\",\n" +
+//                    "                    \"permission\": \"full_rights\"\n" +
+//                    "                },\n" +
+//                    "                {\n" +
+//                    "                    \"code\": \"license_info\",\n" +
+//                    "                    \"name\": \"License Info\",\n" +
+//                    "                    \"permission\": \"full_rights\"\n" +
+//                    "                },\n" +
+//                    "                {\n" +
+//                    "                    \"code\": \"settings\",\n" +
+//                    "                    \"name\": \"Settings\",\n" +
+//                    "                    \"permission\": \"full_rights\"\n" +
+//                    "                }\n" +
+//                    "            ]\n" +
+//                    "        }\n" +
+//                    "    ]\n" +
+//                    "}";
+//
+//            logRequest("CreateRole", requestBody);
+//            ApiUtil.waitForNextRequest();
+//
+//            lastResponse = ApiClient.post("org.create_role", requestBody, token, orgId);
+//
+//            logResponse("CreateRole", lastResponse);
+//
+//            // Business validation inside service
+//            if (name.isEmpty() || "ACM-001".equals(roleId)) {
+//                // Expected failure
+//                if (lastResponse.getStatusCode() == 400 || lastResponse.getStatusCode() == 409) {
+//                    System.out.println(" Negative test passed for roleId: " + roleId);
+//                } else {
+//                    throw new AssertionError(" Negative test FAILED for roleId: " + roleId
+//                            + ". Status: " + lastResponse.getStatusCode());
+//                }
+//            } else {
+//                // Expected success
+//                if (lastResponse.getStatusCode() == 200 || lastResponse.getStatusCode() == 201) {
+//                    System.out.println(" Role created successfully: " + name + " (" + roleId + ")");
+//                } else {
+//                    throw new AssertionError(" Role creation FAILED for: " + name + " (" + roleId + ")"
+//                            + ". Status: " + lastResponse.getStatusCode());
+//                }
+//            }
+//        }
+//
+//        return lastResponse;
+//    }
+
+
+    // ============== Create Single Role ==============
+    public static Response createRole(String name, String roleId, String description) {
         String orgId = TestData.getOrgId();
 
         if (token == null || token.isEmpty()) {
             token = getTokenOrLogin();
         }
 
-        // List of roles to test (positive + negative scenarios)
-        String[][] roles = {
-                {"Accounts Manager", "ACM-001", "Deals with accounts"},
-                {"HR Manager", "HR-002", "Handles HR operations"},
-                {"Admin", "ADM-003", "System administrator"},
-                {"", "INV-001", "Missing role name"},
-                {"Duplicate Role", "ACM-001", "Duplicate roleId"}
-        };
+        String requestBody = "{\n" +
+                "    \"name\": \"" + name + "\",\n" +
+                "    \"role_id\": \"" + roleId + "\",\n" +
+                "    \"description\": \"" + description + "\",\n" +
+                "    \"functionality_groups\": [\n" +
+                "        {\n" +
+                "            \"code\": \"auto_doc_signer\",\n" +
+                "            \"name\": \"Auto Doc Signer (Digital Signatures)\",\n" +
+                "            \"functionalities\": [\n" +
+                "                {\"code\": \"documents\", \"name\": \"Documents\", \"permission\": \"full_rights\"},\n" +
+                "                {\"code\": \"license_info\", \"name\": \"License Info\", \"permission\": \"full_rights\"},\n" +
+                "                {\"code\": \"settings\", \"name\": \"Settings\", \"permission\": \"full_rights\"}\n" +
+                "            ]\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}";
 
-        Response lastResponse = null;
+        logRequest("CreateRole", requestBody);
+        ApiUtil.waitForNextRequest();
 
-        for (String[] role : roles) {
-            String name = role[0];
-            String roleId = role[1];
-            String description = role[2];
+        Response response = ApiClient.post("org.create_role", requestBody, token, orgId);
 
-            String requestBody = "{\n" +
-                    "    \"name\": \"" + name + "\",\n" +
-                    "    \"role_id\": \"" + roleId + "\",\n" +
-                    "    \"description\": \"" + description + "\",\n" +
-                    "    \"functionality_groups\": [\n" +
-                    "        {\n" +
-                    "            \"code\": \"auto_doc_signer\",\n" +
-                    "            \"name\": \"Auto Doc Signer (Digital Signatures)\",\n" +
-                    "            \"functionalities\": [\n" +
-                    "                {\n" +
-                    "                    \"code\": \"documents\",\n" +
-                    "                    \"name\": \"Documents\",\n" +
-                    "                    \"permission\": \"full_rights\"\n" +
-                    "                },\n" +
-                    "                {\n" +
-                    "                    \"code\": \"license_info\",\n" +
-                    "                    \"name\": \"License Info\",\n" +
-                    "                    \"permission\": \"full_rights\"\n" +
-                    "                },\n" +
-                    "                {\n" +
-                    "                    \"code\": \"settings\",\n" +
-                    "                    \"name\": \"Settings\",\n" +
-                    "                    \"permission\": \"full_rights\"\n" +
-                    "                }\n" +
-                    "            ]\n" +
-                    "        }\n" +
-                    "    ]\n" +
-                    "}";
+        logResponse("CreateRole", response);
 
-            logRequest("CreateRole", requestBody);
-            ApiUtil.waitForNextRequest();
-
-            lastResponse = ApiClient.post("org.create_role", requestBody, token, orgId);
-
-            logResponse("CreateRole", lastResponse);
-
-            // Business validation inside service
-            if (name.isEmpty() || "ACM-001".equals(roleId)) {
-                // Expected failure
-                if (lastResponse.getStatusCode() == 400 || lastResponse.getStatusCode() == 409) {
-                    System.out.println(" Negative test passed for roleId: " + roleId);
-                } else {
-                    throw new AssertionError(" Negative test FAILED for roleId: " + roleId
-                            + ". Status: " + lastResponse.getStatusCode());
-                }
-            } else {
-                // Expected success
-                if (lastResponse.getStatusCode() == 200 || lastResponse.getStatusCode() == 201) {
-                    System.out.println(" Role created successfully: " + name + " (" + roleId + ")");
-                } else {
-                    throw new AssertionError(" Role creation FAILED for: " + name + " (" + roleId + ")"
-                            + ". Status: " + lastResponse.getStatusCode());
-                }
-            }
-        }
-
-        return lastResponse;
+        return response;
     }
+
+
 
 
 

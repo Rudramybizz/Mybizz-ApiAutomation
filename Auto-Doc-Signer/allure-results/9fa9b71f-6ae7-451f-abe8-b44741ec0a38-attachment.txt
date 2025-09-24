@@ -1,0 +1,22 @@
+{
+    "success": "1",
+    "message": "Notification(s) fetched successfully",
+    "data": {
+        "Today - Wednesday 24 September, 2025": [
+            {
+                "id": 114,
+                "title": "Document",
+                "description": "Mxjxtpo Xxgubl sent a document wide document number 000002250924 dated 24/09/2025 for Sign.",
+                "is_read": false,
+                "is_favorite": false,
+                "timestamp": "24/09/2025 "
+            }
+        ],
+        "Yesterday - Tuesday 23 September, 2025": [
+            
+        ],
+        "Older": [
+            
+        ]
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "6458c64a-b57f-4f30-a1d3-c453b09ddc44",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION INDIA PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250913017"
+        },
+        {
+            "id": "e6865b4f-fd5f-4a25-9abf-e1a3fe855782",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION INDIA PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250913018"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

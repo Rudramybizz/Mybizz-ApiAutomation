@@ -1,0 +1,4 @@
+{
+    "success": "0",
+    "message": "You can assign workflow to uploaded documents only"
+}

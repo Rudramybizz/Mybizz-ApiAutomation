@@ -1,0 +1,17 @@
+{
+    "success": "1",
+    "message": "Workflow(s) found successfully",
+    "data": [
+        {
+            "id": "715384ed-cee8-4e20-acbd-953aa610ef83",
+            "no_of_assigned_signatories": 1,
+            "workflow_name": "W1",
+            "is_default": false
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 1,
+    "current_page_data_count": 1
+}

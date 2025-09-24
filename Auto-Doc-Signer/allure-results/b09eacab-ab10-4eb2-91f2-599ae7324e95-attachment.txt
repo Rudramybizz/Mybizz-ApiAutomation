@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "30f7aba1-7931-42a8-ba8f-cb2f36109ebf",
+            "start_date": "24/09/2025",
+            "valid_upto": "23/09/2026",
+            "organization_name": "DRAG AND DROP SOFTWARE PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250924001"
+        },
+        {
+            "id": "eeaf7412-c608-4d65-99d9-157ed3fdca48",
+            "start_date": "24/09/2025",
+            "valid_upto": "23/09/2026",
+            "organization_name": "DRAG AND DROP SOFTWARE PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250924001"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

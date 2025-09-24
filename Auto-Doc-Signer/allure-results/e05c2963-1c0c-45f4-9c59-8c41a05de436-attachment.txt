@@ -1,0 +1,5 @@
+{
+    "success": "1",
+    "message": "Token generated successfully",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWQiOiJBMjUwOTE1MDAxIiwiZXhwIjoxNzU3OTMwMTY1LCJpYXQiOjE3NTc5MDg1NjV9.Pm10T0Ex0dVmZV_FQpk6lnBb5dvluOKjE537d6-ajig"
+}

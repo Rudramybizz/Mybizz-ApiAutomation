@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "757b6c81-1dac-43c6-9ddb-6e6c46ec4558",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION DIGITAL PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250913018"
+        },
+        {
+            "id": "de61afe5-8a76-4203-963e-857411d0bd54",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION DIGITAL PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250913019"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

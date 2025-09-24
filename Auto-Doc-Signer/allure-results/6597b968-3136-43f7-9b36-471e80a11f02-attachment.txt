@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "4f265f79-7eb4-4c3b-99be-9deeaf16309c",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION SYSTEMS PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250913011"
+        },
+        {
+            "id": "50ec1b30-3d13-4362-978a-6ddea10770a6",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION SYSTEMS PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250913012"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

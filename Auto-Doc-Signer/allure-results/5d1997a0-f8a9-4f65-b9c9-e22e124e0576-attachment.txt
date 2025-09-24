@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "0dc54019-19e6-4239-98bc-6e4f7c2fd269",
+            "start_date": "15/09/2025",
+            "valid_upto": "14/09/2026",
+            "organization_name": "QUANTUM CONSULTING PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250915002"
+        },
+        {
+            "id": "68fda243-8bc1-46d6-b218-72bab78a708e",
+            "start_date": "15/09/2025",
+            "valid_upto": "14/09/2026",
+            "organization_name": "QUANTUM CONSULTING PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250915002"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

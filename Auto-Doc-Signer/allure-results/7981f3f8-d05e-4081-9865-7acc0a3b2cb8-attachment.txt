@@ -1,0 +1,5 @@
+{
+    "success": "0",
+    "message": "Resend is allowed 30 seconds ahead of its last generation attempt",
+    "code": "OTP_0000005"
+}

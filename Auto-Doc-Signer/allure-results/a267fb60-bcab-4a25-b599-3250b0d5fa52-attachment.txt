@@ -1,0 +1,18 @@
+{
+    "success": "1",
+    "message": "Document summary found successfully",
+    "data": [
+        
+    ],
+    "expiry_date": "14/09/2026",
+    "total_plan_credits": 1200,
+    "used_plan_credits_till_date": -100,
+    "total_add_on_credits": 600,
+    "used_add_on_credits_till_date": 0,
+    "plan_name": "API - Basic",
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 0,
+    "current_page_data_count": 0
+}

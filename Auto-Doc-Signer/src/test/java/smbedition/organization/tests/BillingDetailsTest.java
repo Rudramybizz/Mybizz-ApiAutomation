@@ -39,5 +39,11 @@ public class BillingDetailsTest {
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
     }
 
+    @Test(priority = 6, description = "License Payment Windows Subscription")
+    public void license_Payment_WindowsSubscription(){
+        Response response = BillingDetailsService.licensePaymentWindows();
+        Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
+    }
+
 
 }

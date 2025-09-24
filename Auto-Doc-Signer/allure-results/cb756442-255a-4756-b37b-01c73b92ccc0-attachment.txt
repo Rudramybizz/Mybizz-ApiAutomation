@@ -1,0 +1,818 @@
+{
+    "success": "1",
+    "message": "Data retrieved successfully (from cache)",
+    "data": [
+        {
+            "id": "AF",
+            "code": "+93",
+            "name": "Afghanistan",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "AL",
+            "code": "+355",
+            "name": "Albania",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "DZ",
+            "code": "+213",
+            "name": "Algeria",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "AD",
+            "code": "+376",
+            "name": "Andorra",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "AO",
+            "code": "+244",
+            "name": "Angola",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "AR",
+            "code": "+54",
+            "name": "Argentina",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "AM",
+            "code": "+374",
+            "name": "Armenia",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "AU",
+            "code": "+61",
+            "name": "Australia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "AT",
+            "code": "+43",
+            "name": "Austria",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "AZ",
+            "code": "+994",
+            "name": "Azerbaijan",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "BH",
+            "code": "+973",
+            "name": "Bahrain",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "BD",
+            "code": "+880",
+            "name": "Bangladesh",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "BY",
+            "code": "+375",
+            "name": "Belarus",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "BE",
+            "code": "+32",
+            "name": "Belgium",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "BO",
+            "code": "+591",
+            "name": "Bolivia",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "BA",
+            "code": "+387",
+            "name": "Bosnia and Herzegovina",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "BW",
+            "code": "+267",
+            "name": "Botswana",
+            "phone_length_start_range": 7,
+            "phone_length_end_range": 7
+        },
+        {
+            "id": "BR",
+            "code": "+55",
+            "name": "Brazil",
+            "phone_length_start_range": 11,
+            "phone_length_end_range": 11
+        },
+        {
+            "id": "BG",
+            "code": "+359",
+            "name": "Bulgaria",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "KH",
+            "code": "+855",
+            "name": "Cambodia",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "CA",
+            "code": "+1",
+            "name": "Canada",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "CL",
+            "code": "+56",
+            "name": "Chile",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "CN",
+            "code": "+86",
+            "name": "China",
+            "phone_length_start_range": 11,
+            "phone_length_end_range": 11
+        },
+        {
+            "id": "CO",
+            "code": "+57",
+            "name": "Colombia",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "CR",
+            "code": "+506",
+            "name": "Costa Rica",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "CI",
+            "code": "+225",
+            "name": "CÃ´te d'Ivoire (Ivory Coast)",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "HR",
+            "code": "+385",
+            "name": "Croatia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "CY",
+            "code": "+357",
+            "name": "Cyprus",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "CZ",
+            "code": "+420",
+            "name": "Czech Republic",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "DK",
+            "code": "+45",
+            "name": "Denmark",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "DO",
+            "code": "+1-809",
+            "name": "Dominican Republic",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "EC",
+            "code": "+593",
+            "name": "Ecuador",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "EG",
+            "code": "+20",
+            "name": "Egypt",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "SV",
+            "code": "+503",
+            "name": "El Salvador",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "EE",
+            "code": "+372",
+            "name": "Estonia",
+            "phone_length_start_range": 7,
+            "phone_length_end_range": 7
+        },
+        {
+            "id": "ET",
+            "code": "+251",
+            "name": "Ethiopia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "FJ",
+            "code": "+679",
+            "name": "Fiji",
+            "phone_length_start_range": 7,
+            "phone_length_end_range": 7
+        },
+        {
+            "id": "FI",
+            "code": "+358",
+            "name": "Finland",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "FR",
+            "code": "+33",
+            "name": "France",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "GE",
+            "code": "+995",
+            "name": "Georgia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "DE",
+            "code": "+49",
+            "name": "Germany",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "GH",
+            "code": "+233",
+            "name": "Ghana",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "GR",
+            "code": "+30",
+            "name": "Greece",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "GT",
+            "code": "+502",
+            "name": "Guatemala",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "GY",
+            "code": "+592",
+            "name": "Guyana",
+            "phone_length_start_range": 7,
+            "phone_length_end_range": 7
+        },
+        {
+            "id": "HN",
+            "code": "+504",
+            "name": "Honduras",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "HK",
+            "code": "+852",
+            "name": "Hong Kong S.A.R.",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "HU",
+            "code": "+36",
+            "name": "Hungary",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "IN",
+            "code": "+91",
+            "name": "India",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "ID",
+            "code": "+62",
+            "name": "Indonesia",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "IE",
+            "code": "+353",
+            "name": "Ireland",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "IL",
+            "code": "+972",
+            "name": "Israel",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "IT",
+            "code": "+39",
+            "name": "Italy",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "JP",
+            "code": "+81",
+            "name": "Japan",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "JO",
+            "code": "+962",
+            "name": "Jordan",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "KZ",
+            "code": "+7",
+            "name": "Kazakhstan",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "KE",
+            "code": "+254",
+            "name": "Kenya",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "KW",
+            "code": "+965",
+            "name": "Kuwait",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "LA",
+            "code": "+856",
+            "name": "Laos",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "LV",
+            "code": "+371",
+            "name": "Latvia",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "LB",
+            "code": "+961",
+            "name": "Lebanon",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "LT",
+            "code": "+370",
+            "name": "Lithuania",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "LU",
+            "code": "+352",
+            "name": "Luxembourg",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "MG",
+            "code": "+261",
+            "name": "Madagascar",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "MY",
+            "code": "+60",
+            "name": "Malaysia",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "MT",
+            "code": "+356",
+            "name": "Malta",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "MU",
+            "code": "+230",
+            "name": "Mauritius",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "MX",
+            "code": "+52",
+            "name": "Mexico",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "MD",
+            "code": "+373",
+            "name": "Moldova",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "MA",
+            "code": "+212",
+            "name": "Morocco",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "MZ",
+            "code": "+258",
+            "name": "Mozambique",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "MM",
+            "code": "+95",
+            "name": "Myanmar",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "NA",
+            "code": "+264",
+            "name": "Namibia",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "NP",
+            "code": "+977",
+            "name": "Nepal",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "NL",
+            "code": "+31",
+            "name": "Netherlands",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "NZ",
+            "code": "+64",
+            "name": "New Zealand",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "NO",
+            "code": "+47",
+            "name": "Norway",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "OM",
+            "code": "+968",
+            "name": "Oman",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "PA",
+            "code": "+507",
+            "name": "Panama",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "PG",
+            "code": "+675",
+            "name": "Papua New Guinea",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "PY",
+            "code": "+595",
+            "name": "Paraguay",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "PE",
+            "code": "+51",
+            "name": "Peru",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "PH",
+            "code": "+63",
+            "name": "Philippines",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "PL",
+            "code": "+48",
+            "name": "Poland",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "PT",
+            "code": "+351",
+            "name": "Portugal",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "QA",
+            "code": "+974",
+            "name": "Qatar",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "RO",
+            "code": "+40",
+            "name": "Romania",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "RU",
+            "code": "+7",
+            "name": "Russia",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "RW",
+            "code": "+250",
+            "name": "Rwanda",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "SA",
+            "code": "+966",
+            "name": "Saudi Arabia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "SN",
+            "code": "+221",
+            "name": "Senegal",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "RS",
+            "code": "+381",
+            "name": "Serbia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "SG",
+            "code": "+65",
+            "name": "Singapore",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "SK",
+            "code": "+421",
+            "name": "Slovakia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "SI",
+            "code": "+386",
+            "name": "Slovenia",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "ZA",
+            "code": "+27",
+            "name": "South Africa",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "KR",
+            "code": "+82",
+            "name": "South Korea",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "ES",
+            "code": "+34",
+            "name": "Spain",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "LK",
+            "code": "+94",
+            "name": "Sri Lanka",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "SE",
+            "code": "+46",
+            "name": "Sweden",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "CH",
+            "code": "+41",
+            "name": "Switzerland",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "TW",
+            "code": "+886",
+            "name": "Taiwan",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "TZ",
+            "code": "+255",
+            "name": "Tanzania",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "TH",
+            "code": "+66",
+            "name": "Thailand",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "TN",
+            "code": "+216",
+            "name": "Tunisia",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "TR",
+            "code": "+90",
+            "name": "Turkey",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "UG",
+            "code": "+256",
+            "name": "Uganda",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "UA",
+            "code": "+380",
+            "name": "Ukraine",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "AE",
+            "code": "+971",
+            "name": "United Arab Emirates",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "GB",
+            "code": "+44",
+            "name": "United Kingdom",
+            "phone_length_start_range": 8,
+            "phone_length_end_range": 8
+        },
+        {
+            "id": "US",
+            "code": "+1",
+            "name": "United States",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "UY",
+            "code": "+598",
+            "name": "Uruguay",
+            "phone_length_start_range": 10,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "UZ",
+            "code": "+998",
+            "name": "Uzbekistan",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "VN",
+            "code": "+84",
+            "name": "Vietnam",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 10
+        },
+        {
+            "id": "ZM",
+            "code": "+260",
+            "name": "Zambia",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        },
+        {
+            "id": "ZW",
+            "code": "+263",
+            "name": "Zimbabwe",
+            "phone_length_start_range": 9,
+            "phone_length_end_range": 9
+        }
+    ]
+}

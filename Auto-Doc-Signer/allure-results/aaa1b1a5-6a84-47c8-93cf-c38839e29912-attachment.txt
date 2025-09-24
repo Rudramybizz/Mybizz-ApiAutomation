@@ -1,0 +1,13 @@
+{
+    "success": "1",
+    "message": "Signature(s) found successfully",
+    "data": {
+        "id": "67bffa81-b78f-4d4c-9dc2-de8c0162efae",
+        "from_date": "01/05/2024",
+        "expiry_date": "01/05/2026",
+        "status": "Active",
+        "signature_name": "CARTLINES",
+        "user_id": "19beb809-576c-486e-a1d5-d85903acc950",
+        "organization_user_id": "6bdda353-1055-4b59-8ba9-28ee8898155b"
+    }
+}

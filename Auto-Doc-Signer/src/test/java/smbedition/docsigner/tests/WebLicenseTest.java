@@ -67,19 +67,6 @@ public class WebLicenseTest extends BaseTest {
         Allure.addAttachment("Get Digital Signature API Response", response.getBody().asPrettyString());
     }
 
-//    @Test(priority = 6, description = "Delete Digital Sugnature API")
-      @Story("Delete Digital Signature .")
-      @Severity(SeverityLevel.MINOR)
-      @Description( "Delete Digital Signature API")
-    public void deleteDigital_Signature() {
-        Response response = WebLicenseService.deleteDigitalSignature();
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
-        ApiUtil.waitForNextRequest();
-        Response response1 = WebLicenseService.addDigitalSignatureSucess();
-        System.out.println("New Signature Added After Deletion, Status Code: " + response1.getStatusCode());
-        Allure.addAttachment("Delete Digital Signature API Response", response.getBody().asPrettyString());
-      }
-
 
     @Test(priority = 7)
     @Story("Add Signature .")
@@ -312,6 +299,19 @@ public void download_Document() {
         Assert.assertEquals(response.getStatusCode(),200,"Expected status code 200");
     Allure.addAttachment("Remove Document API Response", response.getBody().asPrettyString());
 }
+     @Test(priority = 32, description = "Delete Digital Sugnature API")
+    @Story("Delete Digital Signature .")
+    @Severity(SeverityLevel.MINOR)
+    @Description( "Delete Digital Signature API")
+    public void deleteDigital_Signature() {
+        Response response = WebLicenseService.deleteDigitalSignature();
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200");
+        ApiUtil.waitForNextRequest();
+//        Response response1 = WebLicenseService.addDigitalSignatureSucess();
+//        System.out.println("New Signature Added After Deletion, Status Code: " + response1.getStatusCode());
+        Allure.addAttachment("Delete Digital Signature API Response", response.getBody().asPrettyString());
+    }
+
 
 
 

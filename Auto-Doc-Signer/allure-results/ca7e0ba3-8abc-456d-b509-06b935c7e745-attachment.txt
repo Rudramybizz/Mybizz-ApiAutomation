@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "8ea83ada-c5e1-486f-89f1-553e7ffb8e23",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION TECH PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250913012"
+        },
+        {
+            "id": "0c38ad0a-d513-4f2f-b089-038a06b9e1a3",
+            "start_date": "13/09/2025",
+            "valid_upto": "12/09/2026",
+            "organization_name": "VISION TECH PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250913013"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

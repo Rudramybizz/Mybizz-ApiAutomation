@@ -1,0 +1,40 @@
+{
+    "success": "1",
+    "message": "License invoice(s) found successfully",
+    "data": [
+        {
+            "id": "b8d19244-58af-4e00-89f1-10b871822a3a",
+            "invoice_number": "2509153",
+            "invoice_date": "15/09/2025",
+            "organization_name": "QUANTUM CONSULTING PRIVATE LIMITED",
+            "application": "WEB",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "15/09/2025",
+            "end_date": "14/09/2026",
+            "next_billing_date": "15/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        },
+        {
+            "id": "f0328d9d-e1a3-4ab8-9a46-703e13c208fc",
+            "invoice_number": "2509154",
+            "invoice_date": "15/09/2025",
+            "organization_name": "QUANTUM CONSULTING PRIVATE LIMITED",
+            "application": "API",
+            "plan_type": "Basic",
+            "billing_cycle": "Annual",
+            "start_date": "15/09/2025",
+            "end_date": "14/09/2026",
+            "next_billing_date": "15/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 14160.0,
+            "total_credits": 1200,
+            "used_credits": 0,
+            "credit_balance": 1200
+        }
+    ]
+}

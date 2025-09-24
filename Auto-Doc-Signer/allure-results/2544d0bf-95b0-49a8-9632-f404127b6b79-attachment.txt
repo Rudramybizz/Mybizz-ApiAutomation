@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "83505e69-c649-44f9-a4be-3f0b638ad0a0",
+            "start_date": "24/09/2025",
+            "valid_upto": "23/09/2026",
+            "organization_name": "DRAG AND DROP INDIA PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250924002"
+        },
+        {
+            "id": "919d05bd-1cfa-4c48-8295-db7047f9e494",
+            "start_date": "24/09/2025",
+            "valid_upto": "23/09/2026",
+            "organization_name": "DRAG AND DROP INDIA PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250924002"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

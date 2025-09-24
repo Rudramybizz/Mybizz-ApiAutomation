@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "dc5ce4eb-de63-4c36-9ad8-58de5b8bfb69",
+            "start_date": "15/09/2025",
+            "valid_upto": "14/09/2026",
+            "organization_name": "INFINITY INDIA PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Basic",
+            "status": "active",
+            "license_id": "A250915003"
+        },
+        {
+            "id": "e547506c-c4af-46ed-8bcc-e815296ba1a7",
+            "start_date": "15/09/2025",
+            "valid_upto": "14/09/2026",
+            "organization_name": "INFINITY INDIA PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250915003"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

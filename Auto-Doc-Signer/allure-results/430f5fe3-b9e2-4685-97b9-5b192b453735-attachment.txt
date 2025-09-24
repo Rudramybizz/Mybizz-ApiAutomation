@@ -1,0 +1,40 @@
+{
+    "success": "1",
+    "message": "License invoice(s) found successfully",
+    "data": [
+        {
+            "id": "be438986-b1ac-4f11-9f21-c3cca4fcfcba",
+            "invoice_number": "2509247",
+            "invoice_date": "24/09/2025",
+            "organization_name": "SKYLINE TECH PRIVATE LIMITED",
+            "application": "WEB",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "24/09/2025",
+            "end_date": "23/09/2026",
+            "next_billing_date": "24/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        },
+        {
+            "id": "c4ca14fa-e9ba-467b-8a12-3e6485cf4c7c",
+            "invoice_number": "2509248",
+            "invoice_date": "24/09/2025",
+            "organization_name": "SKYLINE TECH PRIVATE LIMITED",
+            "application": "API",
+            "plan_type": "Unlimited",
+            "billing_cycle": "Annual",
+            "start_date": "24/09/2025",
+            "end_date": "23/09/2026",
+            "next_billing_date": "24/09/2026",
+            "subscription_status": "active",
+            "invoice_amount": 84960.0,
+            "total_credits": 0,
+            "used_credits": 0,
+            "credit_balance": 0
+        }
+    ]
+}

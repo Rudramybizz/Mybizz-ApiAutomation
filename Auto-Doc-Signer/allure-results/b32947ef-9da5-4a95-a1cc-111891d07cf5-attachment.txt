@@ -1,0 +1,22 @@
+{
+    "success": "1",
+    "message": "Notification(s) fetched successfully",
+    "data": {
+        "Today - Monday 15 September, 2025": [
+            {
+                "id": 93,
+                "title": "Document",
+                "description": "Nofmnxj Ujyatr sent a document wide document number 000002250915 dated 15/09/2025 for Sign.",
+                "is_read": false,
+                "is_favorite": false,
+                "timestamp": "15/09/2025 "
+            }
+        ],
+        "Yesterday - Sunday 14 September, 2025": [
+            
+        ],
+        "Older": [
+            
+        ]
+    }
+}

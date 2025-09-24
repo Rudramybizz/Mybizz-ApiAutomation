@@ -1,0 +1,9 @@
+{
+    "success": "0",
+    "message": "Please ensure that all the filled details are correct",
+    "data": {
+        "role_id": [
+            "Role ID already exists."
+        ]
+    }
+}

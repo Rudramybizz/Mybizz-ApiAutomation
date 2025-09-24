@@ -1,0 +1,11 @@
+{
+    "success": "1",
+    "message": "Data found successfully",
+    "data": {
+        "signature_position": "570,70,370,150",
+        "default_page_number": "first",
+        "custom_page_number": null,
+        "purpose_or_reason": "document",
+        "default_location": "Hyderabad"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "success": "1",
+    "message": "Localisation details found successfully",
+    "data": {
+        "id": "3cc535c8-498c-4937-821d-4b9ff1d964a5",
+        "timezone_id": "Asia/Kolkata",
+        "language_id": "en-US",
+        "communication_language_list": [
+            "en-US"
+        ],
+        "date_format": "%d/%m/%Y"
+    }
+}
