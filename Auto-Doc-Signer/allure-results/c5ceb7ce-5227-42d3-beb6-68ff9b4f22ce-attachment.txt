@@ -1,0 +1,350 @@
+{
+    "success": "1",
+    "message": "Data retrieved successfully (from cache)",
+    "data": [
+        {
+            "id": "af",
+            "name": "Afrikaans"
+        },
+        {
+            "id": "sq",
+            "name": "Albanian"
+        },
+        {
+            "id": "am",
+            "name": "Amharic"
+        },
+        {
+            "id": "ar",
+            "name": "Arabic"
+        },
+        {
+            "id": "hy",
+            "name": "Armenian"
+        },
+        {
+            "id": "as",
+            "name": "Assamese"
+        },
+        {
+            "id": "az",
+            "name": "Azerbaijani - Latin script"
+        },
+        {
+            "id": "bn",
+            "name": "Bangla (India)"
+        },
+        {
+            "id": "eu",
+            "name": "Basque"
+        },
+        {
+            "id": "be",
+            "name": "Belarusian"
+        },
+        {
+            "id": "bs",
+            "name": "Bosnian - Latin script"
+        },
+        {
+            "id": "bg",
+            "name": "Bulgarian"
+        },
+        {
+            "id": "ca",
+            "name": "Catalan"
+        },
+        {
+            "id": "zh-CN",
+            "name": "Chinese (Simplified)"
+        },
+        {
+            "id": "zh-TW",
+            "name": "Chinese (Traditional)"
+        },
+        {
+            "id": "hr",
+            "name": "Croatian"
+        },
+        {
+            "id": "cs",
+            "name": "Czech"
+        },
+        {
+            "id": "da",
+            "name": "Danish"
+        },
+        {
+            "id": "nl",
+            "name": "Dutch"
+        },
+        {
+            "id": "en-GB",
+            "name": "English (United Kingdom)"
+        },
+        {
+            "id": "en-US",
+            "name": "English (United States)"
+        },
+        {
+            "id": "et",
+            "name": "Estonian"
+        },
+        {
+            "id": "tl",
+            "name": "Filipino"
+        },
+        {
+            "id": "fi",
+            "name": "Finnish"
+        },
+        {
+            "id": "fr-CA",
+            "name": "French (Canada)"
+        },
+        {
+            "id": "fr-FR",
+            "name": "French (France)"
+        },
+        {
+            "id": "gl",
+            "name": "Galician"
+        },
+        {
+            "id": "ka",
+            "name": "Georgian"
+        },
+        {
+            "id": "de",
+            "name": "German"
+        },
+        {
+            "id": "el",
+            "name": "Greek"
+        },
+        {
+            "id": "gu",
+            "name": "Gujarati"
+        },
+        {
+            "id": "he",
+            "name": "Hebrew"
+        },
+        {
+            "id": "hi",
+            "name": "Hindi"
+        },
+        {
+            "id": "hu",
+            "name": "Hungarian"
+        },
+        {
+            "id": "is",
+            "name": "Icelandic"
+        },
+        {
+            "id": "id",
+            "name": "Indonesian"
+        },
+        {
+            "id": "ga",
+            "name": "Irish Gaelic"
+        },
+        {
+            "id": "it",
+            "name": "Italian"
+        },
+        {
+            "id": "ja",
+            "name": "Japanese"
+        },
+        {
+            "id": "kn",
+            "name": "Kannada"
+        },
+        {
+            "id": "kk",
+            "name": "Kazakh"
+        },
+        {
+            "id": "km",
+            "name": "Khmer"
+        },
+        {
+            "id": "kok",
+            "name": "Konkani"
+        },
+        {
+            "id": "ko",
+            "name": "Korean"
+        },
+        {
+            "id": "lv",
+            "name": "Latvian"
+        },
+        {
+            "id": "lt",
+            "name": "Lithuanian"
+        },
+        {
+            "id": "lb",
+            "name": "Luxembourgish"
+        },
+        {
+            "id": "mk",
+            "name": "Macedonian (North Macedonia)"
+        },
+        {
+            "id": "ms",
+            "name": "Malay"
+        },
+        {
+            "id": "ml",
+            "name": "Malayalam"
+        },
+        {
+            "id": "mt",
+            "name": "Maltese"
+        },
+        {
+            "id": "mi",
+            "name": "Maori"
+        },
+        {
+            "id": "mr",
+            "name": "Marathi"
+        },
+        {
+            "id": "ne",
+            "name": "Nepali"
+        },
+        {
+            "id": "no-BM",
+            "name": "Norwegian (BokmÃ¥l)"
+        },
+        {
+            "id": "no-NN",
+            "name": "Norwegian (Nynorsk)"
+        },
+        {
+            "id": "or",
+            "name": "Odia"
+        },
+        {
+            "id": "fa",
+            "name": "Persian (Farsi)"
+        },
+        {
+            "id": "pl",
+            "name": "Polish"
+        },
+        {
+            "id": "pt-BR",
+            "name": "Portuguese (Brazil)"
+        },
+        {
+            "id": "pt-PT",
+            "name": "Portuguese (Portugal)"
+        },
+        {
+            "id": "pa",
+            "name": "Punjabi (India)"
+        },
+        {
+            "id": "qu",
+            "name": "Quechua (Peru)"
+        },
+        {
+            "id": "ro",
+            "name": "Romanian"
+        },
+        {
+            "id": "ru",
+            "name": "Russian"
+        },
+        {
+            "id": "gd",
+            "name": "Scottish Gaelic"
+        },
+        {
+            "id": "sr-Cyrl",
+            "name": "Serbian - Cyrillic script"
+        },
+        {
+            "id": "sr-Cyrl-BA",
+            "name": "Serbian - Cyrillic script (Bosnia and Herzegovina)"
+        },
+        {
+            "id": "sr-Latn",
+            "name": "Serbian - Latin script"
+        },
+        {
+            "id": "sk",
+            "name": "Slovak"
+        },
+        {
+            "id": "sl",
+            "name": "Slovenian"
+        },
+        {
+            "id": "es-MX",
+            "name": "Spanish (Mexico)"
+        },
+        {
+            "id": "es-ES",
+            "name": "Spanish (Spain)"
+        },
+        {
+            "id": "sv",
+            "name": "Swedish"
+        },
+        {
+            "id": "ta",
+            "name": "Tamil (India)"
+        },
+        {
+            "id": "tt",
+            "name": "Tatar"
+        },
+        {
+            "id": "te",
+            "name": "Telugu"
+        },
+        {
+            "id": "th",
+            "name": "Thai"
+        },
+        {
+            "id": "tr",
+            "name": "Turkish"
+        },
+        {
+            "id": "uk",
+            "name": "Ukrainian"
+        },
+        {
+            "id": "ur",
+            "name": "Urdu"
+        },
+        {
+            "id": "ug",
+            "name": "Uyghur"
+        },
+        {
+            "id": "uz",
+            "name": "Uzbek - Latin script"
+        },
+        {
+            "id": "ca-Valencia",
+            "name": "Valencian"
+        },
+        {
+            "id": "vi",
+            "name": "Vietnamese"
+        },
+        {
+            "id": "cy",
+            "name": "Welsh"
+        }
+    ]
+}

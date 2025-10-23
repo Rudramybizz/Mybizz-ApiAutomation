@@ -1,0 +1,22 @@
+{
+    "success": "1",
+    "message": "Notification(s) fetched successfully",
+    "data": {
+        "Today - Thursday 25 September, 2025": [
+            {
+                "id": 119,
+                "title": "Document",
+                "description": "Ewqakik Qczpam sent a document wide document number 000001250925 dated 25/09/2025 for Sign.",
+                "is_read": false,
+                "is_favorite": false,
+                "timestamp": "25/09/2025 "
+            }
+        ],
+        "Yesterday - Wednesday 24 September, 2025": [
+            
+        ],
+        "Older": [
+            
+        ]
+    }
+}

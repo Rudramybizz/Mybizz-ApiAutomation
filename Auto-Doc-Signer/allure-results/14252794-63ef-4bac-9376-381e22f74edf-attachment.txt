@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "705662f3-5ffc-4207-b5cf-a5d2e353ca34",
+            "start_date": "25/09/2025",
+            "valid_upto": "24/09/2026",
+            "organization_name": "INFINITY DIGITAL PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "A250925001"
+        },
+        {
+            "id": "70e0d5e1-4a09-4bbd-94e2-13a446187e6c",
+            "start_date": "25/09/2025",
+            "valid_upto": "24/09/2026",
+            "organization_name": "INFINITY DIGITAL PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250925001"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

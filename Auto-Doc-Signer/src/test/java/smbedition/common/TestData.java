@@ -1,6 +1,6 @@
 package smbedition.common;
 
-import smbedition.organization.services.OrgServices;
+//import smbedition.organization.services.OrgServices;
 
 import java.util.Collections;
 import java.util.List;
@@ -88,8 +88,6 @@ public class TestData {
         return userName.toString();
 }
 
-
-
     public static String generateRandomLastName(){
         String chars = "abcdefghijklmnopqrstuvwxyz";
         StringBuilder userName = new StringBuilder();
@@ -102,11 +100,7 @@ public class TestData {
     }
 
 
-
-
-
 //   ===========================
-
     public static String generateOrganizationName() {
         String[] prefixes = {"DRAG AND DROP", "SKYLINE", "INFINITY", "VISION", "QUANTUM", "GLOBAL", "FUSION"};
         String[] suffixes = {"INDIA", "TECH", "SOFTWARE", "CONSULTING", "DIGITAL", "SYSTEMS"};
@@ -176,23 +170,23 @@ public class TestData {
 
 
 
-    public static String getRandomStateId() {
-        List<String> states = OrgServices.getStateIds(); // replace with actual class holding get_Organization_countrySpecific
-        if (states == null || states.isEmpty()) {
-            throw new IllegalStateException("No state IDs available. Make sure get_Organization_countrySpecific() is called first.");
-        }
-        Random random = new Random();
-        return states.get(random.nextInt(states.size()));
-    }
+//    public static String getRandomStateId() {
+//        List<String> states = OrgServices.getStateIds(); // replace with actual class holding get_Organization_countrySpecific
+//        if (states == null || states.isEmpty()) {
+//            throw new IllegalStateException("No state IDs available. Make sure get_Organization_countrySpecific() is called first.");
+//        }
+//        Random random = new Random();
+//        return states.get(random.nextInt(states.size()));
+//    }
 
-    public static  String getRandomCityId() {
-        List<String> cities = OrgServices.getCityIds();
-        if (cities == null || cities.isEmpty()) {
-            throw new IllegalStateException("No city IDs available. Make sure get_Organization_countrySpecific() is called first.");
-        }
-        Random random = new Random();
-        return cities.get(random.nextInt(cities.size()));
-    }
+//    public static  String getRandomCityId() {
+////        List<String> cities = OrgServices.getCityIds();
+//        if (cities == null || cities.isEmpty()) {
+//            throw new IllegalStateException("No city IDs available. Make sure get_Organization_countrySpecific() is called first.");
+//        }
+//        Random random = new Random();
+//        return cities.get(random.nextInt(cities.size()));
+//    }
 
 
     // ===== ORG ID =====

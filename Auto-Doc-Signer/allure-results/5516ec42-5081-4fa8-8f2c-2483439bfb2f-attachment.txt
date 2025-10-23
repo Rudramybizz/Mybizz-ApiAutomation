@@ -1,0 +1,12 @@
+{
+    "success": "form_error",
+    "message": "Please ensure that all the filled details are correct and precise",
+    "data": {
+        "email": [
+            "Invalid value: DC_ERROR"
+        ],
+        "password": [
+            "Invalid value: DC_ERROR"
+        ]
+    }
+}

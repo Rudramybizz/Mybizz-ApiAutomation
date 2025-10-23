@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "381b272a-5ee9-4566-b559-892169fb17e6",
+            "start_date": "25/09/2025",
+            "valid_upto": "24/09/2026",
+            "organization_name": "SKYLINE TECH PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "A250925003"
+        },
+        {
+            "id": "464b8aa5-f86f-40a7-96eb-a0351b93baa1",
+            "start_date": "25/09/2025",
+            "valid_upto": "24/09/2026",
+            "organization_name": "SKYLINE TECH PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250925003"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

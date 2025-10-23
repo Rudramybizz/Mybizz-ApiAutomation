@@ -6,17 +6,16 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.http.ContentType.JSON;
 
 public class RequestSpecFactory {
-
     private static final ThreadLocal<RequestSpecification> SPEC = new ThreadLocal<>();
 
-    public static void init(String baseUrl) {
+    public static void init() {
+        // No base URL here - we'll use full URLs in ApiClient
         RequestSpecBuilder builder = new RequestSpecBuilder()
-                .setBaseUri(baseUrl)
-                .setContentType(JSON);
+                .setContentType(JSON)
+                .setRelaxedHTTPSValidation(); // For different environments
 
         SPEC.set(builder.build());
     }
-
 
     public static RequestSpecification get() {
         RequestSpecification spec = SPEC.get();
@@ -25,8 +24,6 @@ public class RequestSpecFactory {
         }
         return spec;
     }
-
-
 
     public static void remove() {
         SPEC.remove();

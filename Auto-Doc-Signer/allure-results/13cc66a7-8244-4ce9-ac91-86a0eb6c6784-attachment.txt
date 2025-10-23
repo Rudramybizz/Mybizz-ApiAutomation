@@ -1,0 +1,31 @@
+{
+    "success": "1",
+    "message": "License(s) found successfully",
+    "data": [
+        {
+            "id": "a69a4f95-ec43-4062-845d-9a4decdb87af",
+            "start_date": "25/09/2025",
+            "valid_upto": "24/09/2026",
+            "organization_name": "GLOBAL SOFTWARE PRIVATE LIMITED",
+            "desktop_type": "API",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "A250925002"
+        },
+        {
+            "id": "9c5158d4-e05e-4ad6-8b0b-330fabac0e13",
+            "start_date": "25/09/2025",
+            "valid_upto": "24/09/2026",
+            "organization_name": "GLOBAL SOFTWARE PRIVATE LIMITED",
+            "desktop_type": "Web App",
+            "plan_type": "Unlimited",
+            "status": "active",
+            "license_id": "W250925002"
+        }
+    ],
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 2,
+    "current_page_data_count": 2
+}

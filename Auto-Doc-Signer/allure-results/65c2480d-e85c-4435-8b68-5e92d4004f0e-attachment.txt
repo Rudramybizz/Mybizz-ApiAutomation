@@ -1,0 +1,105 @@
+{
+    "success": "1",
+    "message": "Plan details found successfully",
+    "data": [
+        {
+            "id": "c7307ad7-c918-4a52-a718-48720aab7e0c",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "windows",
+            "plan_type": "unlimited",
+            "monthly_price": 1999.0,
+            "annual_price": 17988.0,
+            "no_of_credits": 2147483647,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "78eb96c9-c4f3-4600-b5f1-9fc0057e7006",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "linux",
+            "plan_type": "unlimited",
+            "monthly_price": 2499.0,
+            "annual_price": 23988.0,
+            "no_of_credits": 2147483647,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "a0e9ff51-f147-4fa0-aa8e-08a4eb3c77fa",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "mac",
+            "plan_type": "unlimited",
+            "monthly_price": 2999.0,
+            "annual_price": 29988.0,
+            "no_of_credits": 2147483647,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "729a1c66-da80-4e7f-b6db-683a0e3b9191",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "web",
+            "plan_type": "basic",
+            "monthly_price": 1000.0,
+            "annual_price": 12000.0,
+            "no_of_credits": 100,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "1f4127fb-f1fc-425e-8819-4aa5171abecf",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "web",
+            "plan_type": "premium",
+            "monthly_price": 3000.0,
+            "annual_price": 36000.0,
+            "no_of_credits": 1000,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "ae3c2a44-848b-47cf-a4b7-3a6b672f76a2",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "web",
+            "plan_type": "unlimited",
+            "monthly_price": 6000.0,
+            "annual_price": 72000.0,
+            "no_of_credits": 2147483647,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "3b6010c9-098d-4bac-98f8-bbd2d0a869cf",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "api",
+            "plan_type": "basic",
+            "monthly_price": 1000.0,
+            "annual_price": 12000.0,
+            "no_of_credits": 100,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "a35d2127-0853-4980-8c44-0d58fae4627d",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "api",
+            "plan_type": "premium",
+            "monthly_price": 3000.0,
+            "annual_price": 36000.0,
+            "no_of_credits": 1000,
+            "is_gst_applicable": true
+        },
+        {
+            "id": "845b2663-5173-419c-9040-d2d25ab498ff",
+            "region": "india",
+            "currency_id": "INR",
+            "desktop_type": "api",
+            "plan_type": "unlimited",
+            "monthly_price": 6000.0,
+            "annual_price": 72000.0,
+            "no_of_credits": 2147483647,
+            "is_gst_applicable": true
+        }
+    ]
+}

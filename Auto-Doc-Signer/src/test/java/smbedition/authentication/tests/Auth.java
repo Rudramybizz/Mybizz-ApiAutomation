@@ -1,419 +1,430 @@
 package smbedition.authentication.tests;
 
 import io.qameta.allure.*;
-import smbedition.common.ApiUtil;
-import smbedition.common.BaseTest;
+import smbedition.authentication.util.LoginDataProvider;
+import smbedition.authentication.util.RegistrationDataProvider;
+import smbedition.common.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import smbedition.common.TestData;
-import smbedition.common.TokenManager;
 import smbedition.authentication.services.AuthApi;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import smbedition.common.logging.Log;
+import smbedition.common.tokenmanagers.CookieManager;
+import smbedition.common.tokenmanagers.TokenManager;
+import smbedition.common.waits.ApiUtil;
+import java.util.*;
 
 @Epic("Authentication APIs")
-@Feature("User Onboarding  & Security")
+@Feature("User Onboarding & Security")
 public class Auth extends BaseTest {
+    private static List<Map<String, Object>> registeredUsers = new ArrayList<>();
 
+    String mail = TestData.generateRandomEmail();
+    String mobile= TestData.generateRandomMobile();
+    String firstname = TestData.generateRandomFirstName();
+    String lastname = TestData.generateRandomLastName();
+    String password = TestData.generateRandomPassword();
+    String dialing_code ="IN";
 
-    String NewFirstName = TestData.generateRandomFirstName();
-    String NewLastName = TestData.generateRandomLastName();  ;
-    String NewPhone = TestData.generateRandomMobile();
-    String NewEmail = TestData.generateRandomEmail();
-    String cointryId = "IN";
-    String dialingCodeId = "IN";
-
-
-
+    // ========== POSITIVE TESTS ==========
     @Test(priority = 1)
-    @Story("User Registration Generate OTP")
+    @Story("Successful SSO Registration")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Generate OTP for Registration")
-    public void testGenerate_Otp_Register() {
-        Response response = AuthApi.generateOtpRegister(); Allure.step("Calling Generate OTP API for registration");
-//        Response response = AuthApi.generateOtpRegister();
+    @Description("Register user successfully via SSO with valid credentials")
+    public void testSSORegistration_ValidCredentials() {
+        Map<String, Object> validData = createValidRegistrationData();
+        Response response = AuthApi.ssoRegister(validData);
+        registeredUsers.add(validData);
+        Allure.addAttachment("Registration Response", response.getBody().asPrettyString());
 
-        Allure.addAttachment("Response", response.getBody().asPrettyString());
-
-        Allure.step("Validating status code");
-        Assert.assertEquals(response.getStatusCode(), 200);
-
-        String order_id = response.jsonPath().getString("order_id");
-        String message = response.jsonPath().getString("message");
-
-        Allure.step("Asserting order_id and message are not null");
-        Assert.assertNotNull(order_id);
-        Assert.assertNotNull(message);
-
-        Allure.step("OTP Generated: " + order_id);
-    }
-
-
-    @Test(priority = 2)
-    @Story("User Registration With OTP")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Register with OTP & order ID")
-    public void user_register() {
-        Allure.step("Ensure OTP is generated first");
-        AuthApi.generateOtpRegister(); // Ensure OTP is generated
-
-        Allure.step("Calling Register API");
-        Response regResponse = AuthApi.Register();
-        Allure.addAttachment("Register Response", regResponse.getBody().asPrettyString());
-
-        Assert.assertEquals(regResponse.getStatusCode(), 201, "Register API failed");
-    }
-
-
-    @Test(priority = 3)
-    @Story("User Login Generate OTP")
-    @Severity(SeverityLevel.BLOCKER)
-    @Description("Generate OTP for user login.")
-    public void test_GenerateOtp_login() {
-        Response response = AuthApi.generateOtpLogin();
-        Allure.addAttachment("Login OTP Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected HTTP 200 for OTP login");
+        Assert.assertEquals(response.getStatusCode(), 308, "Registration should be successful");
 
         JsonPath jsonPath = response.jsonPath();
-        String orderId = jsonPath.getString("order_id");
         String message = jsonPath.getString("message");
+        Assert.assertNotNull(message, "Success message should be present");
+    }
+    // Helper method to create valid registration data using TestData
+    private static Map<String, Object> createValidRegistrationData() {
+        Map<String, Object> body = new HashMap<>();
+        body.put("first_name", (TestData.generateRandomFirstName()));
+        body.put("last_name", (TestData.generateRandomLastName()));
+        body.put("email", (TestData.generateRandomEmail()));
+        body.put("password",(TestData.generateRandomPassword()));
+        body.put("dialing_code", "IN");
+        body.put("phone",(TestData.generateRandomMobile()));
+        body.put("country_id", "IN");
 
-        Assert.assertNotNull(orderId, "'order_id' missing");
-        Assert.assertTrue(orderId.length() > 10, "'order_id' too short");
-        Assert.assertNotNull(message, "'message' missing");
+        return body;
+    }
 
-        System.out.println("Login OTP Order ID: " + orderId);
+    // ========== NEGATIVE TESTS WITH DATA PROVIDER ==========
+    @Test(priority = 2, dataProvider = "invalidRegistrationData", dataProviderClass = RegistrationDataProvider.class)
+    @Story("SSO Registration with Invalid Data")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test registration with various invalid data scenarios: {1}")
+    public void testSSORegistration_InvalidData(Map<String, Object> registrationData, String scenario) {
+        Allure.parameter("Scenario", scenario);
+        Allure.parameter("Registration Data", registrationData.toString());
+
+        Response response = AuthApi.ssoRegister(registrationData);
+
+        Allure.addAttachment("Registration Response - " + scenario, response.getBody().asPrettyString());
+
+        // Should return 4xx status code for invalid data
+        Assert.assertTrue(response.getStatusCode() >= 400 && response.getStatusCode() < 500,
+                "Should return client error for: " + scenario);
+
+        // Validate error response structure
+        JsonPath jsonPath = response.jsonPath();
+        String errorMessage = jsonPath.getString("message");
+        Assert.assertNotNull(errorMessage, "Error message should be present for: " + scenario);
     }
 
 
-    @Test(priority = 4)
-    @Story("User Login With OTP")
-    @Severity(SeverityLevel.BLOCKER)
-    @Description("Login with OTP.")
-    public void user_Login() {
-        Allure.step("Generate OTP for login");
-        AuthApi.generateOtpLogin();
-
-        Allure.step("Call Login with OTP");
-        Response loginResponse = AuthApi.loginWithOtp();
-        Allure.addAttachment("Login Response", loginResponse.getBody().asPrettyString());
-        Assert.assertEquals(loginResponse.getStatusCode(), 200, "Login failed");
-
-        JsonPath loginJson = loginResponse.jsonPath();
-        String token = loginJson.getString("data.token");
-        TokenManager.setToken(token);
-        String message = loginJson.getString("message");
-
-        Assert.assertNotNull(token, "Login token missing");
-        Assert.assertFalse(token.trim().isEmpty(), "Login token empty");
-        Assert.assertNotNull(message, "'message' missing");
-        Assert.assertFalse(message.trim().isEmpty(), "'message' empty");
-
-        System.out.println("Login Token: " + token);
+    @Test(priority = 3, dataProvider = "boundaryValueData", dataProviderClass = RegistrationDataProvider.class)
+    @Story("SSO Registration Boundary Values")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test registration with boundary values: {1}")
+    public void testSSORegistration_BoundaryValues(Map<String, Object> registrationData, String scenario) {
+        Allure.parameter("Scenario", scenario);
+        ApiUtil.waitForNextRequest();
+        Response response = AuthApi.ssoRegister(registrationData);
+        Allure.addAttachment("Boundary Test Response - " + scenario, response.getBody().asPrettyString());
+        // Log the response for analysis
+        System.out.println("Boundary Test - " + scenario + ": Status=" + response.getStatusCode());
+        // Boundary tests might pass or fail based on validation rules
+        // We just verify we get a proper response
+        Assert.assertTrue(response.getStatusCode() >= 200 && response.getStatusCode() < 500,
+                "Should return valid status code for boundary test: " + scenario);
     }
 
+    @Test(priority = 4, dataProvider = "countryDialingCodeData", dataProviderClass = RegistrationDataProvider.class)
+    @Story("SSO Registration with Different Countries")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test registration with different country/dialing code combinations: {2}")
+    public void testSSORegistration_DifferentCountries(String countryId, String dialingCode, String description) {
+        Map<String, Object> registrationData = createRegistrationDataForCountry(countryId, dialingCode);
+
+        Allure.parameter("Country ID", countryId);
+        Allure.parameter("Dialing Code", dialingCode);
+        Allure.parameter("Description", description);
+
+        Response response = AuthApi.ssoRegister(registrationData);
+
+        Allure.addAttachment("Country Test Response - " + countryId, response.getBody().asPrettyString());
+
+        // Country-specific tests might have different success criteria
+        if (response.getStatusCode() == 308) {
+            // Successful registration
+            JsonPath jsonPath = response.jsonPath();
+            Assert.assertNotNull(jsonPath.getString("message"), "Success message should be present");
+        } else {
+            // Might be unsupported country
+            Assert.assertTrue(response.getStatusCode() >= 400, "Should indicate issue with country configuration");
+        }
+    }
+
+    // ========== SECURITY TESTS ==========
     @Test(priority = 5)
-    @Story("Forgot Password OTP")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Forgot Password OTP")
-    public void testForgotPasswordOtp() {
-        Response response = AuthApi.forgetPassword();
-        Allure.addAttachment("Forgot Password Response", response.getBody().asPrettyString());
-        Allure.step("Manual verification required: email OTP link sent.");
-        System.out.println( "Forgot Password link should shared to mail address , need to check manually");
+    @Story("SSO Registration Security - SQL Injection")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test SQL injection prevention in registration")
+    public void testSSORegistration_SQLInjectionPrevention() {
+        Map<String, Object> maliciousData = RegistrationDataProvider.createSqlInjectionData();
+
+        Response response = AuthApi.ssoRegister(maliciousData);
+
+        Allure.addAttachment("SQL Injection Test Response", response.getBody().asPrettyString());
+
+        // Should reject SQL injection attempts
+        Assert.assertEquals(response.getStatusCode(), 400, "Should reject SQL injection attempts");
+
+        JsonPath jsonPath = response.jsonPath();
+        String errorMessage = jsonPath.getString("message");
+        Assert.assertNotNull(errorMessage, "Should return error message for SQL injection attempt");
     }
 
+    @Test(priority = 6)
+    @Story("SSO Registration Security - XSS Prevention")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test XSS prevention in registration")
+    public void testSSORegistration_XSSPrevention() {
+        Map<String, Object> xssData = RegistrationDataProvider.createXSSData();
 
+        Response response = AuthApi.ssoRegister(xssData);
+
+        Allure.addAttachment("XSS Test Response", response.getBody().asPrettyString());
+
+        // Should reject or sanitize XSS attempts
+        Assert.assertTrue(response.getStatusCode() >= 400, "Should handle XSS attempts properly");
+    }
+
+    // ========== PERFORMANCE TESTS ==========
     @Test(priority = 7)
-    @Story("Get User Profile")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Get Profile API")
-    public void getProfile() {
-        Response response = AuthApi.getProfile();
-        Allure.addAttachment("Profile Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 200, "Get Profile failed");
+    @Story("SSO Registration Performance")
+    @Severity(SeverityLevel.MINOR)
+    @Description("Test registration response time")
+    public void testSSORegistration_ResponseTime() {
+        long startTime = System.currentTimeMillis();
+        Map<String, Object> validData = createValidRegistrationData();
+        Response response = AuthApi.ssoRegister(validData);
+
+
+        long responseTime = System.currentTimeMillis() - startTime;
+
+        Allure.addAttachment("Response Time", "Response time: " + responseTime + "ms");
+        Allure.addAttachment("Performance Response", response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 308, "Registration should be successful");
+
+        // Response time should be reasonable (adjust threshold as needed)
+        long maxAcceptableTime = 1000;
+        Assert.assertTrue(responseTime < maxAcceptableTime,
+                "Response time should be under " + maxAcceptableTime + "ms. Actual: " + responseTime + "ms");
+    }
+
+    // ========== HELPER METHODS ==========
+    private Map<String, Object> createRegistrationDataForCountry(String countryId, String dialingCode) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("first_name", TestData.generateRandomFirstName());
+        body.put("last_name", TestData.generateRandomLastName());
+        body.put("email", TestData.generateRandomEmail());
+        body.put("password", TestData.generateRandomPassword());
+        body.put("dialing_code", dialingCode);
+        body.put("phone", TestData.generateRandomMobile());
+        body.put("country_id", countryId);
+
+        return body;
     }
 
 
-    @Test(priority = 8)
-    @Story("Get Localization.")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Get localization settings API.")
-    public void getLocalization() {
-        Response response = AuthApi.getLocalisationSettings();
-        Allure.addAttachment("Localization Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 200, "Get localization settings failed");
-    }
-
-    @Test(priority = 9 )
-    @Story("Get Privacy Policy And Security. ")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Get privacy and security settings API")
-    public void getPrivacyAndSecurity() {
-        Response response = AuthApi.getPrivacyAndSecuritySettings();
-        Allure.addAttachment("Privacy & Security Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 200, "Get privacy and security settings failed");
-    }
-
-
-    // =================== Update Profile API ===================
-    //    ==============Update profile with All Fields==============
+    // =================== SSo Generate OTP API ===================
     @Test(priority = 10)
-    @Story("Update Profile With All Correct Fields.")
+    @Story("Generate OTP with Valid Credentials")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Update all profile fields successfully.")
-    public void updateProfile_AllFields() {
-        Response response = AuthApi.updateProfile(NewFirstName, NewLastName, NewPhone,NewEmail,"IN", "IN");
-        Allure.addAttachment("Update Profile Response", response.getBody().asPrettyString());
+    @Description("Generate OTP for user login with valid credentials")
+    public void testGenerateOtp_ValidCredentials() {
 
-        Assert.assertEquals(response.getStatusCode(), 200, "Profile update failed");
+        Map<String, Object> registrationData = new HashMap<>();
+        registrationData.put("first_name", firstname);
+        registrationData.put("last_name", lastname);
+        registrationData.put("email", mail);
+        registrationData.put("password", password);
+        registrationData.put("dialing_code", dialing_code);
+        registrationData.put("phone", mobile);
+        registrationData.put("country_id", "IN");
+
+        // Register the user first
+        AuthApi.ssoRegister(registrationData);
+        ApiUtil.waitForNextRequest();
+        Log.info("mail:"+mail);
+        Log.info("password:"+password);
+        Response response = AuthApi.generateOtpLogin(mail,password);
+
+        Allure.addAttachment("Generate OTP Response", response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 200, "OTP generation should be successful");
+
+        JsonPath jsonPath = response.jsonPath();
+        String success = jsonPath.getString("success");
+        String message = jsonPath.getString("message");
+
+        Assert.assertEquals(success, "1", "Success should be 1");
+        Assert.assertEquals(message, "OTP sent successfully", "OTP should be sent successfully");
+
+        System.out.println("✅ OTP Generated Successfully");
     }
 
-
+    //==================== SSO Login with OTP API ===================
     @Test(priority = 11)
-    @Story("Update Profile With Only First Name & Last Name .")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Update only first name and last name")
-    public void updateProfile_PartialFields() {
-        Response response = AuthApi.updateProfile(NewFirstName, NewLastName, null,null, null, null);
-        Allure.addAttachment("Partial Update Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 400, "Please ensure that all the filled details are correct");
-    }
-
-    @Test(priority = 12)
-    @Story("Update Profile With empty credentials.")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Send empty required fields")
-    public void updateProfile_EmptyRequiredFields() {
-        Response response = AuthApi.updateProfile("", "","", "", "", "");
-        Allure.addAttachment("Empty Update Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 400, "API should return 400 for empty fields");
-    }
-
-
-
-    @Test(priority = 13 )
-    @Story("Update Profile With Invalid Phone number.")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Send invalid phone number")
-    public void updateProfile_InvalidPhone() {
-        Response response = AuthApi.updateProfile(NewFirstName, NewLastName, "123", NewEmail,"IN", "IN");
-        Allure.addAttachment("Invalid Phone Update Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 400, "API should return 400 for invalid phone");
-    }
-
-//    =============Update Profile Api localization ===================
-
-    @Test(priority = 14 )
-    @Story("Localization Update with correct credentials.")
+    @Story("Login with Valid OTP")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Update Localization Settings - All valid data")
-    public void updateLocalization_AllFields() {
-        List<String> languages = Arrays.asList("en-US", "te");
-        Response response = AuthApi.updateProfileLocalisation_settings(
-                "Asia/Kolkata",
-                "en-US",
-                languages,
-                "%d/%m/%Y"
+    @Description("Login with valid OTP after OTP generation")
+    public void testLoginWithValidOtp() {
+
+        AuthApi.generateOtpLogin(mail, password);
+        ApiUtil.waitForNextRequest();
+
+        Response response = AuthApi.loginWithOtp(mail, password, "667788");
+
+        Allure.addAttachment("Login Response", response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 308, "Login should be successful");
+
+        JsonPath jsonPath = response.jsonPath();
+        String success = jsonPath.getString("success");
+        String message = jsonPath.getString("message");
+        String authToken = jsonPath.getString("data.authorization_token");
+
+        Assert.assertEquals(success, "1", "Success should be 1");
+        Assert.assertEquals(message, "Login successful", "Login should be successful");
+        Assert.assertNotNull(authToken, "Authorization token should be present");
+
+        // Check if token is stored in TokenManager
+        String storedToken = TokenManager.get();
+        Assert.assertNotNull(storedToken, "Token should be stored in TokenManager");
+
+        System.out.println("✅ Login Successful - Token: " + authToken);
+    }
+
+
+    @Test(priority = 12, dataProvider = "invalidOtpData", dataProviderClass = LoginDataProvider.class)
+    @Story("Generate OTP with Invalid Data")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Generate OTP with invalid data: {1}")
+    public void testGenerateOtp_InvalidData(Map<String, Object> otpData, String scenario) {
+        Allure.parameter("Scenario", scenario);
+
+        Response response = AuthApi.generateOtpLogin(
+                (String) otpData.get("email"),
+                (String) otpData.get("password")
         );
-        Allure.addAttachment("Localization Update Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 200, "Localization update failed");
+
+        Allure.addAttachment("Invalid OTP Response - " + scenario, response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 400, "Should return error for: " + scenario);
     }
 
-
-    @Test(priority = 15 )
-    @Story("Update Localization Settings with missing timezone.")
+    @Test(priority = 13, dataProvider = "invalidLoginData", dataProviderClass = LoginDataProvider.class)
+    @Story("Login with Invalid Data")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Update Localization - Missing timezone")
-    public void updateLocalization_MissingTimezone() {
-        List<String> languages = Arrays.asList("en-US", "te");
-        try {
-            AuthApi.updateProfileLocalisation_settings(
-                    null,
-                    "en-US",
-                    languages,
-                    "%d/%m/%Y"
-            );
-            Assert.fail("Expected IllegalArgumentException for missing timezone");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Caught expected exception: " + e.getMessage());
-        }
-    }
+    @Description("Login with invalid data: {1}")
+    public void testLogin_InvalidData(Map<String, Object> loginData, String scenario) {
+        Allure.parameter("Scenario", scenario);
 
-    @Test(priority = 16 )
-    @Story("Update Localization Settings Without entering the Language.")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Update Localization - Empty communication languages")
-    public void updateLocalization_EmptyLanguages() {
-        try {
-            AuthApi.updateProfileLocalisation_settings(
-                    "Asia/Kolkata",
-                    "en-US",
-                    new ArrayList<>(),
-                    "%d/%m/%Y"
-            );
-            Assert.fail("Expected IllegalArgumentException for empty communication_language_list");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Caught expected exception: " + e.getMessage());
-        }
-    }
+        // First generate valid OTP
+        AuthApi.generateOtpLogin("manpret343@gmail.com", "Indian@123");
 
-    @Test(priority = 17)
-    @Story("Update Localization Settings with invalid Date Format. ")
-    @Severity(SeverityLevel.NORMAL)
-    @Description( "Update Localization - Invalid date format")
-    public void updateLocalization_InvalidDateFormat() {
-        List<String> languages = Arrays.asList("en-US", "te");
-        Response response = AuthApi.updateProfileLocalisation_settings(
-                "Asia/Kolkata",
-                "en-US",
-                languages,
-                "%d/%Y"
+        Response response = AuthApi.loginWithOtp(
+                (String) loginData.get("email"),
+                (String) loginData.get("password"),
+                (String) loginData.get("otp")
         );
-        Allure.addAttachment("Invalid Date Format Response", response.getBody().asPrettyString());
-//        Assert.assertEquals(response.getStatusCode(), 400, "Expected 400 for invalid date format");
+
+        Allure.addAttachment("Invalid Login Response - " + scenario, response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 400, "Should return error for: " + scenario);
     }
 
-
-// ===================== Update Profile privacy_and_security_settings =====================
-
-   @Test(priority = 18)
-   @Story("Privacy Policy update, Desable two factor Authentication.")
-   @Severity(SeverityLevel.CRITICAL)
-   @Description( "Disable Two Factor Authentication")
-    public void updatePrivacy_DisableTwoFactor() {
-        Response response = AuthApi.updateProfilePrivacyAndSecuritySettings(false);
-       Allure.addAttachment("Disable 2FA Response", response.getBody().asPrettyString());
-       Assert.assertEquals(response.getStatusCode(), 200, "Failed to disable two-factor authentication");
-    }
-
-
-    @Test(priority = 19)
-    @Story("Privacy Enable Two Factor Authentication.")
+    @Test(priority = 14)
+    @Story("Complete Login Flow")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Enable Two Factor Authentication")
-    public void updatePrivacy_EnableTwoFactor() {
-        Response response = AuthApi.updateProfilePrivacyAndSecuritySettings(true);
-        Allure.addAttachment("Enable 2FA Response", response.getBody().asPrettyString());
-        Assert.assertEquals(response.getStatusCode(), 200, "Failed to enable two-factor authentication");
+    @Description("Complete login flow: Generate OTP + Login with OTP")
+    public void testCompleteLoginFlow() {
+        Response response = AuthApi.completeLoginFlow(mail, password, "667788");
+
+        Allure.addAttachment("Complete Login Flow Response", response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 308, "Complete login flow should be successful");
+
+        String authToken = TokenManager.get();
+        Assert.assertNotNull(authToken, "Token should be stored after complete login flow");
+
+        System.out.println("✅ Complete Login Flow Successful");
+    }
+
+//  ============Token Exchange API ===================
+    @Test(priority = 50)
+    @Story("Token Exchange with Valid Token")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Exchange authorization token and capture cookies")
+    public void testTokenExchange_ValidToken() {
+
+
+        Response loginResponse = AuthApi.completeLoginFlow("rudra2@gmail.com","Test@123", "667788");
+        Assert.assertEquals(loginResponse.getStatusCode(), 308, "Login should be successful");
+
+        // Then exchange token
+        Response response = AuthApi.exchangeToken();
+
+        Allure.addAttachment("Token Exchange Response", response.getBody().asPrettyString());
+
+        Assert.assertEquals(response.getStatusCode(), 200, "Token exchange should be successful");
+
+        JsonPath jsonPath = response.jsonPath();
+        String success = jsonPath.getString("success");
+        String message = jsonPath.getString("message");
+
+        Assert.assertEquals(success, "1", "Success should be 1");
+        Assert.assertEquals(message, "Token fetched successfully", "Token should be fetched successfully");
+        // Verify cookies are stored
+        Assert.assertFalse(!CookieManager.getCookies().exist(), "Cookies should be stored after token exchange");
+
+        // Log cookies for verification
+        System.out.println("=== Cookies After Token Exchange ===");
+        CookieManager.getCookies().forEach(cookie -> {
+            System.out.println("Cookie: " + cookie.getName() + " = " + cookie.getValue());
+            Allure.addAttachment("Cookie: " + cookie.getName(), cookie.getValue());
+        });
+        System.out.println("✅ Token Exchange Successful - Cookies Captured");
     }
 
 
-    @Test(priority = 20)
-    @Story("Update Privacy with Null Value.")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Update Privacy with Null Value.")
-    public void updatePrivacy_NullValue() {
+    @Test(priority = 51)
+    @Story("Token Exchange without Login")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Try token exchange without logging in first")
+    public void testTokenExchange_WithoutLogin() {
+        // Clear any existing token
+        TokenManager.clear();
+
         try {
-            AuthApi.updateProfilePrivacyAndSecuritySettings(null);
-            Assert.fail("API should not accept null value");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Caught expected exception: " + e.getMessage());
-        }
-    }
-
-
-    // ===================== get Sessions =====================
-    @Test(priority = 21)
-    @Story("Get Active Sessions")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Get all active user sessions")
-    public void getUserSessions_Positive() {
-        Response response = AuthApi.getSessions();
-        Assert.assertEquals(response.getStatusCode(), 200, "Failed to fetch user sessions");
-        Allure.addAttachment("Sessions Response", response.getBody().asPrettyString());
-        // Optionally validate the response structure
-        JsonPath json = response.jsonPath();
-        Assert.assertNotNull(json.getList("data"), "Sessions data is missing in response");
-        System.out.println("Total Sessions: " + json.getList("data").size());
-    }
-
-    @Test(priority = 22)
-    @Story("Get Sessions without Token.")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Get sessions without login token")
-    public void getUserSessions_NoToken() {
-        // Temporarily clear token
-        String currentToken = null;
-        try {
-            currentToken = AuthApi.getToken(); // If getter exists, else handle via reflection
-            AuthApi.clearToken(); // hypothetical method to clear token
-            AuthApi.getSessions();
-            Assert.fail("Expected IllegalStateException due to missing token");
+            AuthApi.exchangeToken();
+            Assert.fail("Should throw exception when no token is available");
         } catch (IllegalStateException e) {
-            System.out.println("Caught expected exception: " + e.getMessage());
-        } finally {
-            // Restore token
-            AuthApi.setToken(currentToken); // hypothetical setter
+            System.out.println("✅ Correctly caught exception: " + e.getMessage());
+            Assert.assertTrue(e.getMessage().contains("No authorization token available"));
         }
     }
 
+    // =================== Get Profile API ===================
 
-//    ========= Resend OTP Sucess /Fail=============
+        @Test(priority = 61)
+        @Story("Get User Profile After Login")
+        @Severity(SeverityLevel.CRITICAL)
+        @Description("Get user profile information after successful authentication")
+        public void testGetProfile_AfterLogin() {
+            // Complete authentication flow first
+            AuthApi.generateOtpLogin("rudra2@gmail.com", "Test@123");
+            AuthApi.loginWithOtp("rudra2@gmail.com", "Test@123", "667788");
+            ApiUtil.waitForNextRequest();
+            AuthApi.exchangeToken();
 
-   @Test(priority = 23 )
-   @Story("Resend OTP")
-   @Severity(SeverityLevel.NORMAL)
-   @Description("Resend OTP for existing order ID")
-    public void testResendOtp() {
-       ApiUtil.waitForNextRequest();
-        Response response = AuthApi.resendOtp();
-       Allure.addAttachment("Resend OTP Response", response.getBody().asPrettyString());
-//        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 for resend OTP");
+            // Get profile
+            Response response = AuthApi.getProfile();
 
-        // JSON structure validation
-        JsonPath jsonPath = response.jsonPath();
-//        String message = jsonPath.getString("message");
-//        Assert.assertNotNull(message, "'message' is missing");
-//        Assert.assertFalse(message.trim().isEmpty(), "'message' is empty");
+            Allure.addAttachment("Profile Response", response.getBody().asPrettyString());
 
-//        System.out.println("Resend OTP Response: " + message);
-    }
+            Assert.assertEquals(response.getStatusCode(), 200, "Get profile should be successful");
 
-//    ========================== Change Password ============================
+            JsonPath jsonPath = response.jsonPath();
 
-//  @Test(priority = 24)
-    @Story("Change Password.")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Change password API")
-    public void changePassword() {
+            // Validate profile structure
+            Assert.assertNotNull(jsonPath.get("data"), "Profile data should be present");
+            Assert.assertNotNull(jsonPath.getString("data.email"), "Email should be present in profile");
+            Assert.assertNotNull(jsonPath.getString("data.first_name"), "First name should be present in profile");
+            Assert.assertNotNull(jsonPath.getString("data.last_name"), "Last name should be present in profile");
 
-        Response response = AuthApi.changePassword();
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 for change password OTP");
-        JsonPath jsonPath = response.jsonPath();
-        String message = jsonPath.getString("message");
-        Assert.assertNotNull(message, "'message' is missing");
-        Assert.assertFalse(message.trim().isEmpty(), "'message' is empty");
-        Allure.addAttachment("Change Password Response", response.getBody().asPrettyString());
-        System.out.println("Change Password Response: " + message);
-    }
+            System.out.println("✅ Get Profile Successful");
+        }
 
+        @Test(priority = 62)
+        @Story("Get Profile Without Authentication")
+        @Severity(SeverityLevel.NORMAL)
+        @Description("Try to get profile without logging in")
+        public void testGetProfile_WithoutAuth() {
+            // Clear token
+            TokenManager.clear();
 
-//    =================Session-Logout ========================
-
- //  @Test(priority = 25 )
-     @Story("Logout From All Session.")
-     @Severity(SeverityLevel.NORMAL)
-     @Description("Logout from  sessions")
-    public void logoutFromAllSessions() {
-        Response response = AuthApi.sessionLogout();
-        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 for logout from all sessions");
-
-        JsonPath jsonPath = response.jsonPath();
-        String message = jsonPath.getString("message");
-        Assert.assertNotNull(message, "'message' is missing");
-        Assert.assertFalse(message.trim().isEmpty(), "'message' is empty");
-        Allure.addAttachment("Logout From All Session Response", response.getBody().asPrettyString());
-
-         System.out.println("Logout Response: " + message);
-    }
-
-
-
+            try {
+                AuthApi.getProfile();
+                Assert.fail("Should throw exception when no token is available");
+            } catch (IllegalStateException e) {
+                System.out.println("✅ Correctly caught exception: " + e.getMessage());
+                Assert.assertTrue(e.getMessage().contains("No authorization token available"));
+            }
+        }
 
 
 }

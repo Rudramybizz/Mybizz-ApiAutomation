@@ -1,0 +1,10 @@
+{
+    "success": "form_error",
+    "message": "Please ensure that all the filled details are correct and precise",
+    "data": {
+        "password": [
+            "Account suspended. Try again in 11.1 minute"
+        ]
+    },
+    "code": "FORM_ERROR"
+}

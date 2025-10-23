@@ -1,0 +1,13 @@
+{
+    "success": "1",
+    "message": "Data found successfully",
+    "data": [
+        {
+            "id": "8cb3c7f1-1982-463a-85ab-0d5c3400a26d",
+            "app_name": "APP1",
+            "api_key": "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SndZWGxzYjJGa0lqb2ljVGczTm1SUk5YUnhjRk5WWkhoak9FSlFNVXd4ZG0xUmNtdElTMHBpUXk4eGJFaHBNU3REU21GSk1XWndUMGgwWmt0dWF6Rm5VVEYwYzAwNGVVUktjRWROWVV0SFRqTnBObFU0ZW1kRlJ6Um9hRTVwT1dwVFZrdFhaMWRGZGtKdWEwVnBVa0l5YTI1Q1kyYzlMazFyVVhwaVZURnNVMGRSZDFRd05VdFdia1pwVkdjOVBTSjkuVmxtV0ZtXzNTZmxIN09ITjNKQU8zOW5YeTBVbHY5Wnc5cjBmTXpoOU5DUQ==",
+            "api_secret": "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SndZWGxzYjJGa0lqb2lhVTVTZG5ac01GcDRTekJMVWxsa00ydE1WRTlTTjNaM1ZGaHRlRUV3U25aM1EyVnVlWGs0UldkbWJGTndlU3RVVm05dFdHVXpXVmxtVEhkVVNtOHlWekZYWjJJMFZtSkRkMDU0VVc1UGFWUnZlSFpUVGprelZ6SjBiR1ZTYVVSWU4ydHFVWEZKUkRSNGFUUTlMbFV3TlZwa1JscFJVWHBzUzAxVmVIaFRWemd5VW1jOVBTSjkuSkRrQ1JjUzN0LTRkcFdNSEZoUHh5QTdrOVJaNjFrTXBEMjI0SXloSkpmVQ==",
+            "status": true
+        }
+    ]
+}

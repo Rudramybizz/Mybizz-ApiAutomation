@@ -1,0 +1,35 @@
+{
+    "success": "1",
+    "message": "Document(s) found successfully",
+    "section_name": "all",
+    "data": [
+        {
+            "id": "2b98fe7a-6683-4427-a8a9-ee084e75eb10",
+            "date_added": "24/09/2025",
+            "deleted_date_time": null,
+            "attachment": "https://mybizzk8s.blob.core.windows.net/docsigner/dumy_5ht4vhg.pdf?st=2025-09-24T10%3A40%3A51Z&se=2025-09-24T10%3A43%3A51Z&sp=r&sv=2022-11-02&sr=b&sig=MY09ShzIQ%2B%2Bor/50D51JIPLyprZvlPgs7izWMNq6W8o%3D",
+            "status": "uploaded",
+            "approval_id": null,
+            "approval_track_id": null,
+            "assigned_to": "",
+            "pages_to_sign": "",
+            "instruction_notes": "",
+            "document_id": "000005250924",
+            "document_name": "dumy.pdf",
+            "uploaded_by": "Cilxbkd Zluqgo",
+            "deleted_by": null,
+            "remarks": null
+        }
+    ],
+    "analytics": {
+        "all": 1,
+        "pending_for_signature": 0,
+        "signed": 0,
+        "rejected": 0
+    },
+    "current_page": 1,
+    "total_number_of_pages": 1,
+    "count_per_page": 20,
+    "data_count": 1,
+    "current_page_data_count": 1
+}

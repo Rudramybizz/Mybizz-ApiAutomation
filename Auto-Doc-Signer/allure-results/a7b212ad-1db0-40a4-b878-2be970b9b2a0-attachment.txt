@@ -1,0 +1,14 @@
+{
+    "success": "1",
+    "message": "Plan - Add on details found successfully",
+    "data": [
+        {
+            "id": "f9b4e8d8-9ced-44f1-a324-6ba45089cb77",
+            "region": "india",
+            "currency_id": "INR",
+            "amount": 500.0,
+            "gst_amount": 90.0,
+            "no_of_credits": 100
+        }
+    ]
+}

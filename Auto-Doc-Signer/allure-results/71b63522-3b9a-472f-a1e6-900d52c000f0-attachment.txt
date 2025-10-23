@@ -1,0 +1,8 @@
+{
+    "success": "1",
+    "message": "Login successful",
+    "data": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJmOWVmMzhlMi1iNjU4LTQwNjctODI5NS01ZDM4MGE2OGEyNzAiLCJleHAiOjE3NTg3MzE5MjAsImlhdCI6MTc1ODcxMDMyMH0.LYv_6fzVCI2d0e-5ieN40zRH_dyl0NJzLJZdcFUFDrQ",
+        "is_admin": false
+    }
+}

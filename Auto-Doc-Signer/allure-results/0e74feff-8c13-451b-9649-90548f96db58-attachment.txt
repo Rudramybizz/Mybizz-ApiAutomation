@@ -1,0 +1,5 @@
+{
+    "success": "1",
+    "message": "Token fetched successfully",
+    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiJlZTFmNWQ3OWMzMzY0ODhiYWM2NDFkN2Y3MDZmYTlmNCIsImF0ayI6Ijk1YzBlZmI1YjY3NTRjMGU4M2UzMDk2NjcxYzc5MzQ0IiwidWlkIjoiMjk2Yjg3MjQtODM5Zi00MjY3LWIyYTQtNGYzYTg0ZWQ5MDFjIiwiZXhwIjoxNzYxMjE2ODIyLCJpYXQiOjE3NjExOTUyMjJ9.9x1ivb8ZLbQYveXFdRw4G65o4-DMDGNSAXRnVMaqXwM"
+}
