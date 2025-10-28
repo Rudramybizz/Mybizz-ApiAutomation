@@ -11,13 +11,12 @@
             </class>
 
 <!--            <class name="smbedition.authentication.tests.Dropdowns"></class>-->
-<!--            <class name="smbedition.authentication.tests.Debug"></class>-->
 
 <!--            organization-->
             <class name="smbedition.organization.tests.OrgTest">
-                <methods>
-                    <include name="testCreateOrganization_ValidData"/>
-                </methods>
+<!--                <methods>-->
+<!--                    <include name="testCreateOrganization_ValidData"/>-->
+<!--                </methods>-->
             </class>
 <!--            <class name="smbedition.organization.tests.RoleTest"></class>-->
 <!--            <class name="smbedition.organization.tests.OTPTest"></class>-->

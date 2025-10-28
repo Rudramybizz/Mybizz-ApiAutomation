@@ -1,0 +1,9 @@
+{
+    "success": "1",
+    "message": "Login successful",
+    "code": "LOGGED_IN",
+    "data": {
+        "redirect_uri": "http://10.1.0.10:8181",
+        "authorization_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiJkNWE4Zjg3ZjEwNWI0OWU1OTBlZDlhZTU4Yzg4MDM2OSIsImF0ayI6IjdiMDQ0YWU2YWE0ZTQxMGE4MGYzMzkzZWUyZjZhNWVhIiwiZXhwIjoxNzYxMjkxNDEzLCJpYXQiOjE3NjEyOTA4MTN9.EAXLaDzE87FgRFk2PDKgNFY_QbRycVQdtraFZIJfiVM"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "success": "form_error",
+    "message": "Please ensure that all the filled details are correct and precise",
+    "data": {
+        "email": [
+            "Please choose another email"
+        ],
+        "password": [
+            "Please choose a strong password"
+        ]
+    },
+    "code": "FORM_ERROR"
+}

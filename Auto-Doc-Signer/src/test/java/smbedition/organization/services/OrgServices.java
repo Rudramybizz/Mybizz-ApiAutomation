@@ -1,8 +1,9 @@
 package smbedition.organization.services;
 
+import io.restassured.http.Cookie;
+import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import smbedition.common.ApiClient;
-import smbedition.common.tokenmanagers.TokenManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +60,7 @@ public class OrgServices {
     }
 
     public static Response createOrganizationFiscalYear(Map<String, Object> fiscalYearData) {
-        Response response = ApiClient.ssoPost("org.createorganizationfiscalyear", fiscalYearData);
+        Response response = ApiClient.ssoPostOrgId("org.createorganizationfiscalyear", fiscalYearData);
         response.prettyPrint();
         return response;
     }

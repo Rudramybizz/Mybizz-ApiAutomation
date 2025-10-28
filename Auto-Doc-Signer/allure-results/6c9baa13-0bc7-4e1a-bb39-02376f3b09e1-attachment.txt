@@ -1,0 +1,21 @@
+{
+    "success": "1",
+    "message": "Profile fetched successfully",
+    "data": {
+        "id": "296b8724-839f-4267-b2a4-4f3a84ed901c",
+        "first_name": "Rudra Prasad",
+        "last_name": "Mallik",
+        "email": "rudra2@gmail.com",
+        "phone": "6372992622",
+        "dialing_code": "IN",
+        "country_id": null,
+        "profile_picture_id": "",
+        "organization": {
+            "id": "4e19abf1-0b0f-4116-97ef-2629f3caa277",
+            "name": "DRAG AND DROP INDIA PRIVATE LIMITED",
+            "country_id": "IN",
+            "organization_id": "025865900",
+            "is_fiscal_year_settings_created": false
+        }
+    }
+}

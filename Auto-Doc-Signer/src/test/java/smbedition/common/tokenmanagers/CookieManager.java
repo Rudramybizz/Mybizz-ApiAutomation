@@ -5,6 +5,7 @@ import io.restassured.http.Cookies;
 
 public final class CookieManager {
     private static volatile Cookies currentCookies = new Cookies();
+    private static volatile Cookies orgId = new Cookies();
     private static volatile String csrfToken;
 
     private CookieManager() {
@@ -55,6 +56,21 @@ public final class CookieManager {
             }
         }
         return null;
+    }
+
+
+//    Irganization Id
+private static volatile String organizationId;
+
+    public static void setOrgId(String orgId) {
+        if (orgId != null && !orgId.isEmpty()) {
+            organizationId = orgId;
+            System.out.println("Organization ID set: " + organizationId);
+        }
+    }
+
+    public static String getOrgId() {
+        return organizationId;
     }
 
 }

@@ -8,7 +8,6 @@ import smbedition.common.logging.Log;
 import smbedition.common.tokenmanagers.CookieManager;
 import smbedition.common.tokenmanagers.TokenManager;
 import smbedition.common.waits.ApiUtil;
-
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -31,7 +30,6 @@ public class AuthApi {
 
     // ===================== Registration APIs =====================
     public static Response ssoRegister(Map<String, Object> registrationData) {
-
 
         System.out.println("=== SSO Registration Request ===");
         System.out.println("Registration Data: " + registrationData);
@@ -175,11 +173,11 @@ public class AuthApi {
 
     // ===================== Get Profile API =====================
 public static Response getProfile() {
-    String token = TokenManager.get();
-
-    if (token == null || token.isEmpty()) {
-        throw new IllegalStateException("No authorization token available. Please login first.");
-    }
+//    String token = TokenManager.get();
+//
+//    if (token == null || token.isEmpty()) {
+//        throw new IllegalStateException("No authorization token available. Please login first.");
+//    }
 
     System.out.println("=== Get Profile Request ===");
     System.out.println("Using Token: " + token);
@@ -213,12 +211,14 @@ public static Response getProfile() {
             body.put("country_id", dialing_code);
          AuthApi authApi = new AuthApi();
             authApi.ssoRegister(body);
+            Log.info("body:"+body);
 
 //            Login
         ApiUtil.waitForNextRequest();
              generateOtpLogin(email,password);
              ApiUtil.waitForNextRequest();
              loginWithOtp(email,password,"667788");
+             ApiUtil.waitForNextRequest();
              exchangeToken();
     }
 

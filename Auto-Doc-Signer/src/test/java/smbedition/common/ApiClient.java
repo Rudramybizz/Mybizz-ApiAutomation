@@ -133,6 +133,8 @@ public class ApiClient {
                 .andReturn();
     }
 
+
+
     // 2. SSO POST with redirect
     public static Response ssoPost(String endpointKey, Map<String, Object> body, String redirectUri) {
         Cookies cookies = getCurrentCookies();
@@ -142,6 +144,9 @@ public class ApiClient {
         Log.info("Current cookies being sent: " + cookies);
         Response response = given()
                 .spec(RequestSpecFactory.get())
+                .header("User-Agent", "PostmanRuntime/7.49.0")
+                .header("Accept","*/*")
+                .header("Accept-Encoding","gzip, deflate, br")
                 .header(sso_enableencryption, sso_status)
                 .header(sso_enabledecryption, sso_status)
                 .cookies(cookies)
@@ -161,6 +166,10 @@ public class ApiClient {
         Log.info("Current cookies being sent: " + cookies);
         Response response = given()
                 .spec(RequestSpecFactory.get())
+                .contentType("application/json")
+                .header("User-Agent", "PostmanRuntime/7.49.0")
+                .header("Accept","*/*")
+                .header("Accept-Encoding","gzip, deflate, br")
                 .header(sso_enableencryption, sso_status)
                 .header(sso_enabledecryption, sso_status)
                 .cookies(cookies)
@@ -171,6 +180,32 @@ public class ApiClient {
                 .andReturn();
         return response;
     }
+
+    public static Response ssoPostOrgId(String endpointKey, Map<String, Object> body) {
+        Cookies cookies = getCurrentCookies();
+         String orgId = CookieManager.getOrgId();
+        Log.info("organization Id in Cookies:"+orgId);
+        Cookie cookieauthtoken = cookieAuthtoken();
+        Log.info("Current cookies being sent: " + cookies);
+
+        Response response = given()
+                .spec(RequestSpecFactory.get())
+                .header("User-Agent", "PostmanRuntime/7.49.0")
+                .cookie("organization", orgId)
+                .header("Accept","*/*")
+                .header("Accept-Encoding","gzip, deflate, br")
+                .header(sso_enableencryption, sso_status)
+                .header(sso_enabledecryption, sso_status)
+                .cookies(cookies)
+//                .cookie(cookieauthtoken)
+                .body(body)
+                .when()
+                .post(getUrl(endpointKey))
+                .andReturn();
+        return response;
+    }
+
+
 
     // 4. PUT Method
     public static Response put(String endpointKey, Object body) {
